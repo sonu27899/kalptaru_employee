@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { product } from '../../../Classes/product_class';
+import { ProductService } from '../../../Services/productmanagement.service';
+import { Router,ActivatedRoute } from '@angular/router';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-viewproduct',
@@ -7,9 +11,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewproductComponent implements OnInit {
 
-  constructor() { }
+  product:product[]=[];
+  addProductArray:product[]=[];
+   deleteProductArray:product[]=[];
+   f:number=0;
+  displayedColumns: string[] = [ 'product_name','product_price','Action'];
+  dataSource=new MatTableDataSource(this.product);
+  constructor(private _productservice:ProductService,private _router:Router) { }
+
+  ProductPage()
+  {
+    this._router.navigate(['/addproduct']);
+  }
+  UpdateProduct(item:product)
+  {
+    console.log(item.product_id)
+    this._router.navigate(['/updateproduct',item.product_id]);
+  }
+  DeleteProduct(item)
+  {
+    this._productservice.deleteproduct(item).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.deleteProductArray.splice(this.deleteProductArray.indexOf(item),1);
+        this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
+        console.log(this.dataSource.data);
+        this.dataSource.data=this.product;
+      }
+    )
+  }
 
   ngOnInit() {
+    this._productservice.getAllProduct().subscribe(
+      (data:any)=>{
+        this.product=data;
+        this.dataSource.data=this.product;
+      }
+    );
   }
 
 }

@@ -1,3 +1,40 @@
-<p>
-  viewproduct works!
-</p>
+<h1 style="margin-left:500px">Product Managment</h1>
+<div class="example-button-row">
+    <button (click)="ProductPage()"  mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
+  </div>
+
+
+<div class="container">
+<!-- <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+   -->
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="product_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="product_price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Price</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action </th>
+          <td mat-cell *matCellDef="let element">
+              <button (click)="UpdateProduct(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-pencil"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+              <button (click)="DeleteProduct(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-trash"  aria-hidden="true"></span></button>
+          </td>
+        </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <!-- <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator> -->
+  </div>
+</div>

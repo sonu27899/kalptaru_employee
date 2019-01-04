@@ -21,7 +21,9 @@ import { AllsalarylistComponent } from './Cashier/Salary_management/allsalarylis
 import { PendingsalaryComponent } from './Cashier/Salary_management/pendingsalary/pendingsalary.component';
 import { DonesalaryComponent } from './Cashier/Salary_management/donesalary/donesalary.component';
 import { ManagerhomepageComponent } from './Manager/managerhomepage/managerhomepage.component';
-import { ViewproductComponent } from './Manager/product_management/viewproduct/viewproduct.component'
+import { ViewproductComponent } from './Manager/product_management/viewproduct/viewproduct.component';
+import { AddproductComponent } from './Manager/product_management/addproduct/addproduct.component';
+import { UpdateproductComponent } from './Manager/product_management/updateproduct/updateproduct.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ViewproductComponent } from './Manager/product_management/viewproduct/v
     PendingsalaryComponent,
     DonesalaryComponent,
     ManagerhomepageComponent,
-    ViewproductComponent
+    ViewproductComponent,
+    AddproductComponent,
+    UpdateproductComponent
   ],
   imports: [
     routing,
