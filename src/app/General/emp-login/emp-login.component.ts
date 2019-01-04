@@ -27,7 +27,9 @@ export class EmpLoginComponent implements OnInit {
 
           if (data[0].employee_designation == "Manager") {
             alert("Welcome Manager");
-          } else if (data[0].employee_designation == "Worker") {
+            this._route.navigate(['ManagerHomepage']);
+          }
+          else if (data[0].employee_designation == "Worker") {
             alert("Welcome Worker");
           }
           else if(data[0].employee_designation=='Cashier'){

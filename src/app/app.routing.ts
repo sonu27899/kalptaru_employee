@@ -6,14 +6,19 @@ import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bil
 import { AllsalarylistComponent } from './Cashier/Salary_management/allsalarylist/allsalarylist.component';
 import { PendingsalaryComponent } from './Cashier/Salary_management/pendingsalary/pendingsalary.component';
 import { DonesalaryComponent } from './Cashier/Salary_management/donesalary/donesalary.component';
+import { ManagerhomepageComponent } from './Manager/managerhomepage/managerhomepage.component';
 
 const arr:Routes=[
+  //Cashier
   {path:'',component:EmpLoginComponent},
   {path:'CashierHomepage',component:CashierhomepageComponent},
   {path:'Viewbill',component:ViewbillComponent},
   {path:'getbilldetails/:bill_id',component:BillDetailsComponent},
   {path:'Viewsalary',component:AllsalarylistComponent},
   {path:'pendingsalary',component:PendingsalaryComponent},
-  {path:'donesalary',component:DonesalaryComponent}
+  {path:'donesalary',component:DonesalaryComponent},
+
+  //Manager
+  {path:'ManagerHomepage',component:ManagerhomepageComponent}
 ];
 export const routing=RouterModule.forRoot(arr);
