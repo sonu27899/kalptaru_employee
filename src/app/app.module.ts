@@ -16,7 +16,10 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { CashierhomepageComponent } from './Cashier/cashierhomepage/cashierhomepage.component';
 import { CashierdashboardComponent } from './Cashier/cashierdashboard/cashierdashboard.component';
 import { ViewbillComponent } from './Cashier/Bill_management/viewbill/viewbill.component';
-import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bill-details.component'
+import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bill-details.component';
+import { AllsalarylistComponent } from './Cashier/Salary_management/allsalarylist/allsalarylist.component';
+import { PendingsalaryComponent } from './Cashier/Salary_management/pendingsalary/pendingsalary.component';
+import { DonesalaryComponent } from './Cashier/Salary_management/donesalary/donesalary.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { BillDetailsComponent } from './Cashier/Bill_management/bill-details/bil
     CashierhomepageComponent,
     CashierdashboardComponent,
     ViewbillComponent,
-    BillDetailsComponent
+    BillDetailsComponent,
+    AllsalarylistComponent,
+    PendingsalaryComponent,
+    DonesalaryComponent
   ],
   imports: [
     routing,
