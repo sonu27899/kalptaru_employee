@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { EmpLoginComponent } from './General/emp-login/emp-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule,MatSidenavModule,MatInputModule,MatSelectModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatIconModule, MatToolbarModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule} from '@angular/material';
+import { MatRadioModule,MatButtonModule,MatSidenavModule,MatInputModule,MatSelectModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatIconModule, MatToolbarModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatCheckboxModule} from '@angular/material';
 
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -23,7 +23,9 @@ import { DonesalaryComponent } from './Cashier/Salary_management/donesalary/done
 import { ManagerhomepageComponent } from './Manager/managerhomepage/managerhomepage.component';
 import { ViewproductComponent } from './Manager/product_management/viewproduct/viewproduct.component';
 import { AddproductComponent } from './Manager/product_management/addproduct/addproduct.component';
-import { UpdateproductComponent } from './Manager/product_management/updateproduct/updateproduct.component'
+import { UpdateproductComponent } from './Manager/product_management/updateproduct/updateproduct.component';
+import { OrderstatusComponent } from './Manager/order_management/orderstatus/orderstatus.component';
+import { PersonalloanComponent } from './Manager/personalloan/personalloan.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { UpdateproductComponent } from './Manager/product_management/updateprodu
     ManagerhomepageComponent,
     ViewproductComponent,
     AddproductComponent,
-    UpdateproductComponent
+    UpdateproductComponent,
+    OrderstatusComponent,
+    PersonalloanComponent
   ],
   imports: [
     routing,
@@ -51,6 +55,8 @@ import { UpdateproductComponent } from './Manager/product_management/updateprodu
     MatButtonModule,
     MatSidenavModule,
     MatInputModule,
+    MatRadioModule,
+    MatCheckboxModule,
     MatSelectModule,
     MatTableModule,
     MatFormFieldModule,

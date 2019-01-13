@@ -10,7 +10,8 @@ import { ManagerhomepageComponent } from './Manager/managerhomepage/managerhomep
 import { ViewproductComponent } from './Manager/product_management/viewproduct/viewproduct.component';
 import { AddproductComponent } from './Manager/product_management/addproduct/addproduct.component';
 import { UpdateproductComponent } from './Manager/product_management/updateproduct/updateproduct.component';
-
+import { OrderstatusComponent } from './Manager/order_management/orderstatus/orderstatus.component';
+import { PersonalloanComponent } from './Manager/personalloan/personalloan.component';
 const arr:Routes=[
   //Cashier
   {path:'',component:EmpLoginComponent},
@@ -25,6 +26,8 @@ const arr:Routes=[
   {path:'ManagerHomepage',component:ManagerhomepageComponent},
   {path:'viewproduct',component:ViewproductComponent},
   {path:'addproduct',component:AddproductComponent},
-  {path:'updateproduct',component:UpdateproductComponent}
+  {path:'updateproduct/:product_id',component:UpdateproductComponent},
+  {path:'orderstatus',component:OrderstatusComponent},
+  {path:'personalloan',component:PersonalloanComponent}
 ];
 export const routing=RouterModule.forRoot(arr);

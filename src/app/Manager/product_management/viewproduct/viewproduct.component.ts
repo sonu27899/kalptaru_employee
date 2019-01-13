@@ -25,7 +25,7 @@ export class ViewproductComponent implements OnInit {
   }
   UpdateProduct(item:product)
   {
-    console.log(item.product_id)
+
     this._router.navigate(['/updateproduct',item.product_id]);
   }
   DeleteProduct(item)

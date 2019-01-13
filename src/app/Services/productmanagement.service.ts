@@ -30,4 +30,6 @@ export class ProductService {
   deleteproduct(item){
     return this._http.delete(this.url+item.product_id);
   }
+
+
 }
