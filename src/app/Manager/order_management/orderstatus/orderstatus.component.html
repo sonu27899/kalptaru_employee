@@ -1,4 +1,4 @@
-
+<h4>VIEW ORDER PAGE</h4>
 <div class="container">
 
   <div class="mat-elevation-z8">
@@ -32,6 +32,11 @@
       <ng-container matColumnDef="fk_user_email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>User Email</th>
         <td mat-cell *matCellDef="let element"> {{element.fk_user_email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.user_address}} </td>
       </ng-container>
 
       <ng-container matColumnDef="order_status">

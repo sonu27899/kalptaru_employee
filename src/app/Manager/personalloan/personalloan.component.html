@@ -4,7 +4,7 @@
 <br>
 <form class="example-form" style="margin-left: 250px">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Enter Amount to be withdraw" [(ngModel)]="loan_amount" name="loan_amount">
+    <input matInput placeholder="Enter Amount to be withdraw" type="number" [(ngModel)]="loan_amount" name="loan_amount">
   </mat-form-field>
 <mat-form-field>
     <mat-label>Enter reason for withdrawal</mat-label>
@@ -15,7 +15,7 @@
               cdkAutosizeMaxRows="5"></textarea>
   </mat-form-field>
   <br>
-  <mat-radio-group [(ngModel)]="loan_months" name="loan_months">
+  <mat-radio-group [(ngModel)]="loan_months" name="loan_months" type="number">
     <mat-radio-button [value]="6">6 Months</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <mat-radio-button [value]="8">8 Months</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <mat-radio-button [value]="12">12 Months</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

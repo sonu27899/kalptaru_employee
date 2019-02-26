@@ -13,7 +13,7 @@ import { getNativeByTNode } from '@angular/core/src/render3/util';
 })
 export class OrderstatusComponent implements OnInit {
   orderarr:orderstatus[]=[];
-  displayedColumns: string[] = ['order_id','order_date','order_amount','fk_product_id','fk_category_id','fk_user_email','order_status','Action'];
+  displayedColumns: string[] = ['order_id','order_date','order_amount','fk_product_id','fk_category_id','fk_user_email','Address','order_status','Action'];
   dataSource=new MatTableDataSource();
   i:number;
   status_no:number;
@@ -53,6 +53,7 @@ export class OrderstatusComponent implements OnInit {
     this._ser.getAllOrder().subscribe(
       (data:any[])=>
       {
+        console.log(data);
          for(this.i=0;this.i<data.length;this.i++)
          {
             if(data[this.i].order_status==1)

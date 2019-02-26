@@ -13,7 +13,7 @@ import { SalarymanagementService } from 'src/app/Services/salarymanagement.servi
 export class DonesalaryComponent implements OnInit {
 
   salaryarr:emp_salary[]=[];
-  displayedColumns: string[] = ['employee_name','employee_salary','employee_designation','employee_mobileno','employee_city','employee_gender','salary_status'];
+  displayedColumns: string[] = ['employee_name','employee_joining_date','employee_salary','employee_designation','employee_mobileno','employee_city','employee_gender','salary_status'];
   dataSource=new MatTableDataSource();
 
   constructor(private _salaryser:SalarymanagementService,public _router:Router) { }
