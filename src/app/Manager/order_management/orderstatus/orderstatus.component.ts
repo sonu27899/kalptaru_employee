@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { MatTableDataSource,MatPaginator } from '../../../../../node_modules/@angular/material';
 import { orderstatus } from 'src/app/Classes/order_class';
 import { OrdermanagementService } from 'src/app/Services/ordermanagement.service';
-import { getNativeByTNode } from '@angular/core/src/render3/util';
+
 
 
 @Component({
@@ -15,9 +15,11 @@ export class OrderstatusComponent implements OnInit {
   orderarr:orderstatus[]=[];
   displayedColumns: string[] = ['order_id','order_date','order_amount','fk_product_id','fk_category_id','fk_user_email','Address','order_status','Action'];
   dataSource=new MatTableDataSource();
+  dataSource1=new MatTableDataSource();
   i:number;
   status_no:number;
   flag:number=1;
+
   constructor(private _ser:OrdermanagementService,public _router:Router) { }
   UpdateStatus(element)
   {
@@ -41,19 +43,19 @@ export class OrderstatusComponent implements OnInit {
 
         this.dataSource.data=this.orderarr;
         this.ngOnInit();
-        this._router.navigate(['/orderstatus']);
+        this._router.navigate(['ManagerHomepage/orderstatus']);
       }
     );
   }
   onClick(item)
   {
-    this._router.navigate(['/getbilldetails',item.bill_id]);
+    this._router.navigate(['ManagerHomepage/getbilldetails',item.bill_id]);
   }
   ngOnInit() {
     this._ser.getAllOrder().subscribe(
       (data:any[])=>
       {
-        console.log(data);
+
          for(this.i=0;this.i<data.length;this.i++)
          {
             if(data[this.i].order_status==1)
@@ -78,9 +80,7 @@ export class OrderstatusComponent implements OnInit {
         this.orderarr=data;
 
         this.dataSource.data=this.orderarr;
-
-      }
-    );
+      });
   }
 
 }

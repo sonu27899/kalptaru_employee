@@ -4,22 +4,24 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-cashierhomepage',
-  templateUrl: './cashierhomepage.component.html',
-  styleUrls: ['./cashierhomepage.component.css']
+  selector: 'app-delieveryhomepage',
+  templateUrl: './delieveryhomepage.component.html',
+  styleUrls: ['./delieveryhomepage.component.css']
 })
-export class CashierhomepageComponent {
+export class DelieveryhomepageComponent{
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
+    onprofile()
+  {
+    this._router.navigate(['DelieveryHomepage/myprofile',localStorage.getItem('email')])
+  }
 
   constructor(private breakpointObserver: BreakpointObserver,public _router:Router) {}
 
-  onprofile()
-  {
-    this._router.navigate(['CashierHomepage/myprofile',localStorage.getItem('email')])
-  }
+
 }

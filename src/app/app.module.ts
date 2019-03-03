@@ -25,7 +25,11 @@ import { ViewproductComponent } from './Manager/product_management/viewproduct/v
 import { AddproductComponent } from './Manager/product_management/addproduct/addproduct.component';
 import { UpdateproductComponent } from './Manager/product_management/updateproduct/updateproduct.component';
 import { OrderstatusComponent } from './Manager/order_management/orderstatus/orderstatus.component';
-import { PersonalloanComponent } from './Manager/personalloan/personalloan.component'
+import { PersonalloanComponent } from './Manager/personalloan/personalloan.component';
+import { MyprofileComponent } from './General/myprofile/myprofile.component';
+import { UpdateprofileComponent } from './General/updateprofile/updateprofile.component';
+import { DelieverydashboardComponent } from './Delievery_Boy/delieverydashboard/delieverydashboard.component';
+import { DelieveryhomepageComponent } from './Delievery_Boy/delieveryhomepage/delieveryhomepage.component'
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { PersonalloanComponent } from './Manager/personalloan/personalloan.compo
     AddproductComponent,
     UpdateproductComponent,
     OrderstatusComponent,
-    PersonalloanComponent
+    PersonalloanComponent,
+    MyprofileComponent,
+    UpdateprofileComponent,
+    DelieverydashboardComponent,
+    DelieveryhomepageComponent
   ],
   imports: [
     routing,

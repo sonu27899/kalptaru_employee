@@ -13,7 +13,7 @@ import { MatTableDataSource,MatPaginator } from '../../../../../node_modules/@an
 export class BillDetailsComponent implements OnInit {
   id:number;
   details_arr:bill_details[]=[];
-  displayedColumns: string[] = ['bill_detail_id','fk_bill_id','fk_product_id','bill_price','bill_qty','bill_remarks'];
+  displayedColumns: string[] = ['fk_bill_id','product_name','bill_price','bill_qty','bill_remarks'];
   dataSource=new MatTableDataSource();
   constructor(public _actroute:ActivatedRoute,public _ser:BillmanagementService,public _router:Router) { }
 

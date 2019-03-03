@@ -36,6 +36,11 @@ export class EmpLoginComponent implements OnInit {
             alert("Welcome Cashier");
             this._route.navigate(['CashierHomepage']);
           }
+          else if(data[0].employee_designation=="Delievery_Boy")
+          {
+            alert("Welcome Delievery_Boy");
+            this._route.navigate(['DelieveryHomepage']);
+          }
         } else {
           alert("Email Or Password Incorrect");
         }

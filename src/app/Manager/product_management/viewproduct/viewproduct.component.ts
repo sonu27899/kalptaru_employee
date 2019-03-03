@@ -21,12 +21,12 @@ export class ViewproductComponent implements OnInit {
 
   ProductPage()
   {
-    this._router.navigate(['/addproduct']);
+    this._router.navigate(['ManagerHomepage/addproduct']);
   }
   UpdateProduct(item:product)
   {
 
-    this._router.navigate(['/updateproduct',item.product_id]);
+    this._router.navigate(['ManagerHomepage/updateproduct',item.product_id]);
   }
   DeleteProduct(item)
   {

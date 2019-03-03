@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-managerhomepage',
@@ -15,6 +16,11 @@ export class ManagerhomepageComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+    onprofile()
+  {
+    this._router.navigate(['ManagerHomepage/myprofile',localStorage.getItem('email')])
+  }
+
+  constructor(private breakpointObserver: BreakpointObserver,private _router:Router) {}
 
 }

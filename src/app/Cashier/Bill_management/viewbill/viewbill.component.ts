@@ -12,14 +12,14 @@ import { MatTableDataSource,MatPaginator } from '../../../../../node_modules/@an
 })
 export class ViewbillComponent implements OnInit {
   billarr:viewbill[]=[];
-  displayedColumns: string[] = ['bill_id','bill_amount','bill_date','user_id','bill_status','product_id','Action'];
+  displayedColumns: string[] = ['bill_id','bill_amount','bill_date','user_id','bill_status','product_name','Action'];
   dataSource=new MatTableDataSource();
 
   constructor(private _ser:BillmanagementService,public _router:Router) { }
 
   onClick(item)
   {
-    this._router.navigate(['/getbilldetails',item.bill_id]);
+    this._router.navigate(['CashierHomepage/getbilldetails',item.bill_id]);
   }
   ngOnInit() {
     this._ser.getAllBill().subscribe(
