@@ -15,6 +15,10 @@ import { PersonalloanComponent } from './Manager/personalloan/personalloan.compo
 import { MyprofileComponent } from './General/myprofile/myprofile.component';
 import { UpdateprofileComponent } from './General/updateprofile/updateprofile.component';
 import { DelieveryhomepageComponent } from './Delievery_Boy/delieveryhomepage/delieveryhomepage.component';
+import { MyworkComponent } from './Delievery_Boy/mywork/mywork.component';
+import { ViewcategoryComponent } from './Manager/viewcategory/viewcategory.component';
+import { UpdatecategoryComponent } from './Manager/updatecategory/updatecategory.component';
+import { AddcategoryComponent } from './Manager/addcategory/addcategory.component';
 const arr:Routes=[
   //Cashier
   {path:'',component:EmpLoginComponent},
@@ -35,13 +39,17 @@ const arr:Routes=[
     {path:'orderstatus',component:OrderstatusComponent},
     {path:'personalloan',component:PersonalloanComponent},
     {path:'myprofile/:email',component:MyprofileComponent},
-    {path:'updateprofile/:email',component:UpdateprofileComponent}
+    {path:'updateprofile/:email',component:UpdateprofileComponent},
+    {path:'viewcategory',component:ViewcategoryComponent},
+    {path:'updatecategory/:category_id',component:UpdatecategoryComponent},
+    {path:'addcategory',component:AddcategoryComponent}
 ]},
 
   //DelieveryBoy
   {path:'DelieveryHomepage',component:DelieveryhomepageComponent,children:[
     {path:'myprofile/:email',component:MyprofileComponent},
-    {path:'updateprofile/:email',component:UpdateprofileComponent}
+    {path:'updateprofile/:email',component:UpdateprofileComponent},
+    {path:'mywork',component:MyworkComponent}
   ]},
 ];
 export const routing=RouterModule.forRoot(arr);

@@ -15,7 +15,7 @@ export class ViewproductComponent implements OnInit {
   addProductArray:product[]=[];
    deleteProductArray:product[]=[];
    f:number=0;
-  displayedColumns: string[] = [ 'Category_Name','Category_Id','Qty','product_name','product_price','Action'];
+  displayedColumns: string[] = [ 'Product_Name','Category_Name','Qty','product_price','Action'];
   dataSource=new MatTableDataSource(this.product);
   constructor(private _productservice:ProductService,private _router:Router) { }
 

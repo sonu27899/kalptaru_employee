@@ -5,9 +5,10 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink='viewproduct'>Stock Management</a>
+      <a mat-list-item routerLink='viewproduct'>Product Management</a>
+      <a mat-list-item routerLink='viewcategory'>Category Management</a>
       <a mat-list-item routerLink='orderstatus'>Order Status Management</a>
-      <a mat-list-item routerLink='personalloan'>Personal Loan?</a>
+      <a mat-list-item routerLink='personalloan'>Personal Loan</a>
       <a mat-list-item (click)="onprofile()">My Profile</a>
     </mat-nav-list>
   </mat-sidenav>

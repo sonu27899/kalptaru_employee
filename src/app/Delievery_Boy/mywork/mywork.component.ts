@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { MatTableDataSource,MatPaginator } from '../../../../../node_modules/@angular/material';
 import { orderstatus } from 'src/app/Classes/order_class';
 import { OrdermanagementService } from 'src/app/Services/ordermanagement.service';
-
+import { MatTableDataSource } from '@angular/material';
 
 
 @Component({
-  selector: 'app-orderstatus',
-  templateUrl: './orderstatus.component.html',
-  styleUrls: ['./orderstatus.component.css']
+  selector: 'app-mywork',
+  templateUrl: './mywork.component.html',
+  styleUrls: ['./mywork.component.css']
 })
-export class OrderstatusComponent implements OnInit {
+export class MyworkComponent implements OnInit {
+
   orderarr:orderstatus[]=[];
-  displayedColumns: string[]=['order_id','order_date','order_amount','fk_product_id','fk_category_id','fk_user_email','Address','order_status','Delievery Assign To','Action'];
+  displayedColumns: string[]=['order_id','user_name','order_amount','contact_no','fk_user_email','Address','Action'];
   dataSource=new MatTableDataSource();
-  dataSource1=new MatTableDataSource();
+  employee_email:String;
   i:number;
   status_no:number;
   flag:number=0;
@@ -24,15 +24,7 @@ export class OrderstatusComponent implements OnInit {
   constructor(private _ser:OrdermanagementService,public _router:Router) { }
   UpdateStatus(element)
   {
-    if(element.order_status=='Vendor Recieved Order')
-    {
-        this.status_no=1;
-    }
-    else if(element.order_status=='Product Dispatched')
-    {
-      this.status_no=2;
-    }
-    else if(element.order_status='Shipment')
+    if(element.order_status='Shipment')
     {
       this.status_no=3;
     }
@@ -44,20 +36,17 @@ export class OrderstatusComponent implements OnInit {
 
         this.dataSource.data=this.orderarr;
         this.ngOnInit();
-        this._router.navigate(['ManagerHomepage/orderstatus']);
+        this._router.navigate(['DelieveryHomepage/mywork']);
       }
     );
   }
-  onClick(item)
-  {
-    this._router.navigate(['ManagerHomepage/getbilldetails',item.bill_id]);
-  }
   ngOnInit() {
-    this._ser.getAllOrder().subscribe(
+    this.employee_email=localStorage.getItem('email')
+    this._ser.getAllWork(this.employee_email).subscribe(
       (data:any[])=>
       {
 
-
+        console.log(data);
          for(this.i=0;this.i<data.length;this.i++)
          {
             if(data[this.i].order_status==1)
@@ -78,21 +67,10 @@ export class OrderstatusComponent implements OnInit {
 
             }
 
-            if(data[this.i].delievery_assign=="")
-            {
-              this.n_flag=1;
-
-
-            }
-            else
-            {
-              this.flag=1;
-
-            }
-         }
-        this.orderarr=data;
-        this.dataSource.data=this.orderarr;
-      });
+          }
+          this.orderarr=data;
+          this.dataSource.data=this.orderarr;
+        });
   }
 
 }

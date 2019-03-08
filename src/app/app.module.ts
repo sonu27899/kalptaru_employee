@@ -29,7 +29,12 @@ import { PersonalloanComponent } from './Manager/personalloan/personalloan.compo
 import { MyprofileComponent } from './General/myprofile/myprofile.component';
 import { UpdateprofileComponent } from './General/updateprofile/updateprofile.component';
 import { DelieverydashboardComponent } from './Delievery_Boy/delieverydashboard/delieverydashboard.component';
-import { DelieveryhomepageComponent } from './Delievery_Boy/delieveryhomepage/delieveryhomepage.component'
+import { DelieveryhomepageComponent } from './Delievery_Boy/delieveryhomepage/delieveryhomepage.component';
+import { MyworkComponent } from './Delievery_Boy/mywork/mywork.component';
+import { ViewcategoryComponent } from './Manager/viewcategory/viewcategory.component';
+import { UpdatecategoryComponent } from './Manager/updatecategory/updatecategory.component';
+import { AddcategoryComponent } from './Manager/addcategory/addcategory.component';
+import { WorkerHomepageComponent } from './Worker/worker-homepage/worker-homepage.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +56,12 @@ import { DelieveryhomepageComponent } from './Delievery_Boy/delieveryhomepage/de
     MyprofileComponent,
     UpdateprofileComponent,
     DelieverydashboardComponent,
-    DelieveryhomepageComponent
+    DelieveryhomepageComponent,
+    MyworkComponent,
+    ViewcategoryComponent,
+    UpdatecategoryComponent,
+    AddcategoryComponent,
+    WorkerHomepageComponent
   ],
   imports: [
     routing,

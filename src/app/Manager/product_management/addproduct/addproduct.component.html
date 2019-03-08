@@ -2,19 +2,23 @@
   <h1 style="margin-left:500px">ADD PRODUCT</h1>
   <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1100px">&nbsp;&nbsp; BACK</button>
   <form class="example-form" >
-    <mat-form-field class="example-full-width" >
-      <input matInput placeholder="Product ID" [(ngModel)]="product_id" name="product_id">
-    </mat-form-field>
 
     <form class="example-form" >
     <mat-form-field class="example-full-width" >
       <input matInput placeholder="Product name" [(ngModel)]="product_name" name="product_name">
     </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <!-- <h5>Choose Category Name</h5> -->
+      <mat-select [(value)]="category_id" placeholder="Choose Category Name">
+        <mat-option *ngFor="let item of categoryarr" value={{item.category_id}}>{{item.category_name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-    <form class="example-form" >
+    <!-- <form class="example-form" >
     <mat-form-field class="example-full-width" >
       <input matInput placeholder="Category id" [(ngModel)]="category_id" name="category_id">
-    </mat-form-field>
+    </mat-form-field> -->
 
     <form class="example-form" >
       <mat-form-field class="example-full-width" >

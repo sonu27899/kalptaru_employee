@@ -7,6 +7,8 @@ import { orderstatus } from '../Classes/order_class';
 })
 export class OrdermanagementService {
   private order_url="http://localhost:3000/empvieworder/";
+  private my_work_url="http://localhost:3000/empviewwork/";
+  private product_url="http://localhost:3000/product";
   constructor(private _http:HttpClient) { }
 
   getAllOrder()
@@ -17,5 +19,10 @@ export class OrdermanagementService {
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json')
     return this._http.put(this.order_url+item.order_id,body,{headers:head1});
+  }
+  getAllWork(employee_email)
+  {
+    return this._http.get(this.my_work_url+employee_email);
+
   }
 }

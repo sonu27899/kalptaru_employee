@@ -6,6 +6,7 @@ export class orderstatus
               public fk_product_id:number,
               public fk_category_id:number,
               public fk_user_email:String,
+              public delievery_assign:String,
               public order_status:number
               ){}
 }
