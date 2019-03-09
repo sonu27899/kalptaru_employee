@@ -30,10 +30,9 @@
         <input matInput placeholder="Product color" [(ngModel)]="product_colour" name="product_colour">
       </mat-form-field>
 
-      <form class="example-form" >
-        <mat-form-field class="example-full-width" >
-          <input matInput placeholder="Product Image" [(ngModel)]="product_image" name="product_image">
-        </mat-form-field>
+      <h5><b>Product Image</b></h5>
+          <input type="file" (change)="onselect($event)" selectedFile="product_image">
+
 
     <form class="example-form" >
       <mat-form-field class="example-full-width" >

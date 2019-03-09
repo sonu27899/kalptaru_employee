@@ -44,19 +44,32 @@
         <td mat-cell *matCellDef="let element"> {{element.order_status}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Delievery Assign To">
+      <!-- <ng-container matColumnDef="Delievery Assign To">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Delievery Assign</th>
         <td mat-cell  *matCellDef="let element">
-          <label  value="element.delievery_assign" aria-disabled="false" *ngIf="element.order_status=='Shipment' || element.order_status=='Order Delivered'">{{element.delievery_assign}}</label>
+
           <input type="text" *ngIf="element.order_status=='Product Dispatched'" [(ngModel)]="element.delievery_assign">
         </td>
         <td mat-cell *matCellDef="let element">{{element.delievery_assign}}</td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="Delievery Assign To">
+        <th mat-header-cell *matHeaderCellDef> Delievery Assign </th>
+          <td mat-cell *matCellDef="let element">
+          <label  value="element.delievery_assign" aria-disabled="false" *ngIf="element.order_status=='Shipment' || element.order_status=='Order Delivered'">{{element.delievery_assign}}</label>
+
+          <mat-select [(value)]="delievery_assign" placeholder="Choose Delievery Boy" *ngIf="element.order_status=='Product Dispatched'">
+            <mat-option *ngFor="let item of delieveryarr" value={{item.employee_email}} (click)="getdel(item)">{{item.employee_email}}</mat-option>
+          </mat-select>
+        </td>
       </ng-container>
 
-      <ng-container matColumnDef="Action">
-          <th mat-header-cell *matHeaderCellDef>Action </th>
-          <td mat-cell *matCellDef="let element">
-              <button *ngIf="element.order_status!='Shipment'" (click)="UpdateStatus(element)" mat-raised-button color="primary" ><span class="glyphicon glyphicon-pencil"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+      <ng-container  matColumnDef="Action">
+
+
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            <td mat-cell *matCellDef="let element">
+              <button name="update" *ngIf="element.order_status!='Shipment'" (click)="UpdateStatus(element)" mat-raised-button color="primary" ><span class="glyphicon glyphicon-pencil"  aria-hidden="true" ></span></button>&nbsp;&nbsp;&nbsp;
               <!-- <button *ngIf="element.order_status=='Order Delivered'" (click)="UpdateStatus(element)" mat-raised-button color="primary" ><span class="glyphicon glyphicon-trash"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp; -->
           </td>
         </ng-container>

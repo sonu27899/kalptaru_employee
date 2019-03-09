@@ -27,9 +27,16 @@
       </mat-form-field>
 
       <form class="example-form" >
-        <mat-form-field class="example-full-width" >
-          <input matInput placeholder="Product Image" [(ngModel)]="product_image" name="product_image">
-        </mat-form-field>
+        <!-- <mat-form-field class="example-full-width" >
+          <input matInput placeholder="Product Image" [(ngModel)]="product_image" name="product_image"> -->
+          <!-- </mat-form-field> -->
+        <h3>Image</h3>
+
+              <img src="http://localhost:3000/images/product_images/{{product_image}}">
+              <br>
+              <br>
+              <input type="file" (change)="onselect($event)" selectedFile="product_image">
+              <br>
 
     <form class="example-form" >
       <mat-form-field class="example-full-width" >
