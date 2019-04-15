@@ -26,6 +26,10 @@ export class MyleaveComponent implements OnInit {
     {
       this._router.navigate(['CashierHomepage/personalloan']);
     }
+    else if(this.employee_designation==="Worker")
+    {
+      this._router.navigate(['WorkerHomepage/personalloan']);
+    }
     else
     {
       this._router.navigate(['DelieveryHomepage/personalloan']);

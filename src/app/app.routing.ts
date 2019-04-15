@@ -26,6 +26,7 @@ import { ForgetPasswordComponent } from './General/forget-password/forget-passwo
 import { LeavemanagementComponent } from './General/leavemanagement/leavemanagement.component';
 import { MyleaveComponent } from './General/myleave/myleave.component';
 const arr:Routes=[
+  {path:'forgetpassword',component:ForgetPasswordComponent},
   //Cashier
   {path:'',component:EmpLoginComponent},
   {path:'CashierHomepage',component:CashierhomepageComponent,children:[
@@ -35,7 +36,8 @@ const arr:Routes=[
   {path:'pendingsalary',component:PendingsalaryComponent},
   {path:'donesalary',component:DonesalaryComponent},
   {path:'myprofile/:email',component:MyprofileComponent},
-  {path:'updateprofile/:email',component:UpdateprofileComponent}
+  {path:'updateprofile/:email',component:UpdateprofileComponent},
+  {path:'myleave',component:MyleaveComponent}
 ]},
   //Manager
   {path:'ManagerHomepage',component:ManagerhomepageComponent,children:[
@@ -64,14 +66,18 @@ const arr:Routes=[
     {path:'personalloan',component:PersonalloanComponent},
     {path:'myloan',component:MyloanComponent},
     {path:'addleave',component:LeavemanagementComponent},
+    {path:'myleave',component:MyleaveComponent}
   ]},
 
   //Worker
   {path:'WorkerHomepage',component:WorkerHomepageComponent,children:[
     {path:'myprofile/:email',component:MyprofileComponent},
+    {path:'addleave',component:LeavemanagementComponent},
     {path:'updateprofile/:email',component:UpdateprofileComponent},
     {path:'personalloan',component:PersonalloanComponent},
-    {path:'myloan',component:MyloanComponent}
+    {path:'myloan',component:MyloanComponent},
+    {path:'updateprofile/:email',component:UpdateprofileComponent},
+    {path:'myleave',component:MyleaveComponent}
   ]},
 
 ];

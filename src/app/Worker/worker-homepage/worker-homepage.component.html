@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<!-- <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -22,7 +22,46 @@
       </button>
       <span>Manager Kalpataru Furniture</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+ -->
+
+
+<header class="header">
+  <div class="header_content d-flex flex-row align-items-center justify-content-start">
+    <!-- Hamburger -->
+    <div class="hamburger menu_mm"><i class="fa fa-bars menu_mm" aria-hidden="true"></i></div>
+    <!-- Logo -->
+    <div class="header_logo">
+
+    </div>
+  </div>
+</header>
+<div class="sidebar">
+  <!-- Logo -->
+  <div class="sidebar_logo">
+      <img src="../../../assets/images/kalpatarulogo.jpg" style="height:100px;width:200px;">
+  </div>
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar_nav">
+    <ul>
+      <!-- <li><a routerLink="mywork">My Work<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
+      <li><a routerLink='personalloan'>PersoalLoan<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <li><a routerLink='addleave'>Add Leave<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <li><a style="color:white" (click)="onprofile()">MyProfile<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <!-- <li><a routerLink='myprofile/:email'>MyProfile<i class="fa fa-angle-right" aria-hidden="true"></i></a></li> -->
+    </ul>
+  </nav>
+  <!-- Search -->
+  <!-- <div class="search">
+    <form action="#" class="search_form" id="sidebar_search_form">
+      <input type="text" class="search_input" placeholder="Search" required="required">
+      <button class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+  </div> -->
+</div>
+<div style="margin-left: 20%;">
+<router-outlet></router-outlet>
+</div>

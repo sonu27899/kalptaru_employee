@@ -28,6 +28,10 @@ export class LeavemanagementComponent implements OnInit {
     {
       this._router.navigate(['CashierHomepage/myleave']);
     }
+    else if(this.employee_designation==="Worker")
+    {
+      this._router.navigate(['WorkerHomepage/myleave']);
+    }
     else
     {
       this._router.navigate(['DelieveryHomepage/myleave']);
@@ -55,6 +59,10 @@ export class LeavemanagementComponent implements OnInit {
     else if(this.employee_designation==="Cashier")
     {
       this._router.navigate(['CashierHomepage']);
+    }
+    else if(this.employee_designation=="Worker")
+    {
+      this._router.navigate(['WorkerHomepage']);
     }
     else
     {

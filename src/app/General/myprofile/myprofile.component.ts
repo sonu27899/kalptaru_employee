@@ -32,6 +32,10 @@ export class MyprofileComponent implements OnInit {
     {
       this._router.navigate(['CashierHomepage']);
     }
+    else if(this.employee_designation=="Worker")
+    {
+      this._router.navigate(['WorkerHomepage']);
+    }
     else
     {
       this._router.navigate(['DelieveryHomepage']);
@@ -45,6 +49,8 @@ export class MyprofileComponent implements OnInit {
       this._router.navigate(['ManagerHomepage/updateprofile',this.employee_email]);
     else if(this.employee_designation=="Delievery_Boy")
       this._router.navigate(['DelieveryHomepage/updateprofile',this.employee_email]);
+    else
+    this._router.navigate(['WorkerHomepage/updateprofile',this.employee_email]);
   }
 
   ngOnInit() {

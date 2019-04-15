@@ -45,7 +45,7 @@ update1stpic()
   this._productservice.uploadimage(this.product_id,fd).subscribe(
   (data: any) => {
       this.ngOnInit();
-      // this._router.navigate(['menunav/:user_email/product']);
+      alert("Your Photo Is Updated");
   });
 }
 update2ndpic()
@@ -58,6 +58,7 @@ update2ndpic()
   this._productservice.uploadimage(this.product_id,fd).subscribe(
     (data: any) => {
         this.ngOnInit();
+        alert("Your Photo Is Updated");
         // this._router.navigate(['menunav/:user_email/product']);
     });
 }
@@ -71,8 +72,17 @@ update3rdpic()
   this._productservice.uploadimage(this.product_id,fd).subscribe(
     (data: any) => {
         this.ngOnInit();
+        alert("Your Photo Is Updated");
         // this._router.navigate(['menunav/:user_email/product']);
     });
+}
+BackButton()
+{
+  this._router.navigate(['ManagerHomepage/updateproduct',this.product_id]);
+}
+CancelButton()
+{
+  this._router.navigate(['ManagerHomepage/updateproduct',this.product_id]);
 }
 ngOnInit()
 {

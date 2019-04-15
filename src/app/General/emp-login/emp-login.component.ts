@@ -36,16 +36,19 @@ export class EmpLoginComponent implements OnInit {
           else if (data[0].employee_designation == "Worker")
           {
             alert("Welcome Worker");
+            localStorage.setItem("designation",data[0].employee_designation);
             this._route.navigate(['WorkerHomepage']);
           }
           else if(data[0].employee_designation=='Cashier')
           {
             alert("Welcome Cashier");
+            localStorage.setItem("designation",data[0].employee_designation);
             this._route.navigate(['CashierHomepage']);
           }
           else if(data[0].employee_designation=="Delievery_Boy")
           {
             alert("Welcome Delievery_Boy");
+            localStorage.setItem("designation",data[0].employee_designation);
             this._route.navigate(['DelieveryHomepage']);
           }
         }

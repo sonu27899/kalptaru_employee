@@ -27,6 +27,7 @@ export class BillDetailsComponent implements OnInit {
     this._ser.getBillDetails(this.id).subscribe(
       (data:bill_details[])=>
       {
+        console.log(data);
         this.details_arr=data;
 
         this.dataSource.data=this.details_arr;
@@ -36,6 +37,6 @@ export class BillDetailsComponent implements OnInit {
   }
   BackButton()
   {
-    this._router.navigate(['../']);
+    this._router.navigate(['CashierHomepage/Viewbill']);
   }
 }

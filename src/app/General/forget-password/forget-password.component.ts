@@ -19,7 +19,10 @@ subject1:string;
 
   }
 
-
+  oncancel()
+  {
+    this._route.navigate(['../']);
+  }
   onforget(){
     this._mail.getpassById(this.email).subscribe(
       (data:any)=>{
@@ -29,10 +32,12 @@ subject1:string;
 
           this._mail.sendmail(new sendmail(this.email,this.subject1,this.password)).subscribe(
             (data:sendmail[])=>{
-              alert('Password will send on your mail');
-            }
-          );
 
+            }
+
+          );
+          alert('Password will send on your mail');
+          this._route.navigate(['../']);
          //this._route.navigate(['']);
         }
         else

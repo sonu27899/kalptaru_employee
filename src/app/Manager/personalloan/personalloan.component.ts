@@ -24,6 +24,7 @@ export class PersonalloanComponent implements OnInit {
    employee_email:string;
    interest:number;
    emi:number;
+   employee_designation:string;
 
   constructor(private _loanservice:LoanService,private _router:Router,public dialog: MatDialog) { }
   @Inject(MAT_DIALOG_DATA) public data: loan;
@@ -70,12 +71,23 @@ export class PersonalloanComponent implements OnInit {
   }
   onMyLoanButton()
   {
-    this._router.navigate(['ManagerHomepage/myloan']);
+    if(this.employee_designation=="Manager")
+      this._router.navigate(['ManagerHomepage/myloan']);
+    else if(this.employee_designation=="Worker")
+    {
+      this._router.navigate(['WorkerHomepage/myloan']);
+    }
+    else if(this.employee_designation=="Cashier")
+    {
+      this._router.navigate(['CashierHomepage/myloan']);
+    }
+    else
+      this._router.navigate(['DelieveryHomepage/myloan']);
   }
   ngOnInit() {
    this.fk_employee_email= localStorage.getItem('email');
    this.employee_email=this.fk_employee_email;
-
+    this.employee_designation=localStorage.getItem('designation');
    this._loanservice.getuserdata(this.employee_email).subscribe(
     (data:any)=>{
         this.salary=data[0].employee_salary;

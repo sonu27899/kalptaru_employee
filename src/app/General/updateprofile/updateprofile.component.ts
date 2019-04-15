@@ -35,6 +35,10 @@ export class UpdateprofileComponent implements OnInit {
           {
             this._route.navigate(['CashierHomepage']);
           }
+          else if(this.employee_designation=="Worker")
+          {
+            this._route.navigate(['WorkerHomepage']);
+          }
           else
           {
             this._route.navigate(['DelieveryHomepage']);
@@ -53,6 +57,10 @@ export class UpdateprofileComponent implements OnInit {
     {
       this._route.navigate(['CashierHomepage/myprofile',localStorage.getItem('email')]);
     }
+    else if(this.employee_designation=="Worker")
+    {
+      this._route.navigate(['WorkerHomepage/myprofile',localStorage.getItem('email')]);
+    }
     else
     {
       this._route.navigate(['DelieveryHomepage/myprofile',localStorage.getItem('email')]);
@@ -61,7 +69,7 @@ export class UpdateprofileComponent implements OnInit {
   ngOnInit() {
 
     this.employee_email=this._acroute.snapshot.params['email'];
-
+    this.employee_designation=localStorage.getItem('designation');
 
     this._personalservice.getProfileByEmail(this.employee_email).subscribe(
       (data:any)=>{
