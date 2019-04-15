@@ -19,12 +19,18 @@ import { MyworkComponent } from './Delievery_Boy/mywork/mywork.component';
 import { ViewcategoryComponent } from './Manager/viewcategory/viewcategory.component';
 import { UpdatecategoryComponent } from './Manager/updatecategory/updatecategory.component';
 import { AddcategoryComponent } from './Manager/addcategory/addcategory.component';
+import { MyloanComponent } from './Manager/myloan/myloan.component';
+import { WorkerHomepageComponent } from './Worker/worker-homepage/worker-homepage.component';
+import { UploadImageComponent } from './Manager/product_management/upload-image/upload-image.component';
+import { ForgetPasswordComponent } from './General/forget-password/forget-password.component';
+import { LeavemanagementComponent } from './General/leavemanagement/leavemanagement.component';
+import { MyleaveComponent } from './General/myleave/myleave.component';
 const arr:Routes=[
   //Cashier
   {path:'',component:EmpLoginComponent},
   {path:'CashierHomepage',component:CashierhomepageComponent,children:[
   {path:'Viewbill',component:ViewbillComponent},
-  {path:'getbilldetails/:bill_id',component:BillDetailsComponent},
+  {path:'orderdetails/:order_id',component:BillDetailsComponent},
   {path:'Viewsalary',component:AllsalarylistComponent},
   {path:'pendingsalary',component:PendingsalaryComponent},
   {path:'donesalary',component:DonesalaryComponent},
@@ -42,14 +48,31 @@ const arr:Routes=[
     {path:'updateprofile/:email',component:UpdateprofileComponent},
     {path:'viewcategory',component:ViewcategoryComponent},
     {path:'updatecategory/:category_id',component:UpdatecategoryComponent},
-    {path:'addcategory',component:AddcategoryComponent}
+    {path:'addcategory',component:AddcategoryComponent},
+    {path:'myloan',component:MyloanComponent},
+    {path:'moreimage/:product_id',component:UploadImageComponent},
+    {path:'forgetpassword',component:ForgetPasswordComponent},
+    {path:'addleave',component:LeavemanagementComponent},
+    {path:'myleave',component:MyleaveComponent}
 ]},
 
   //DelieveryBoy
   {path:'DelieveryHomepage',component:DelieveryhomepageComponent,children:[
     {path:'myprofile/:email',component:MyprofileComponent},
     {path:'updateprofile/:email',component:UpdateprofileComponent},
-    {path:'mywork',component:MyworkComponent}
+    {path:'mywork',component:MyworkComponent},
+    {path:'personalloan',component:PersonalloanComponent},
+    {path:'myloan',component:MyloanComponent},
+    {path:'addleave',component:LeavemanagementComponent},
   ]},
+
+  //Worker
+  {path:'WorkerHomepage',component:WorkerHomepageComponent,children:[
+    {path:'myprofile/:email',component:MyprofileComponent},
+    {path:'updateprofile/:email',component:UpdateprofileComponent},
+    {path:'personalloan',component:PersonalloanComponent},
+    {path:'myloan',component:MyloanComponent}
+  ]},
+
 ];
 export const routing=RouterModule.forRoot(arr);

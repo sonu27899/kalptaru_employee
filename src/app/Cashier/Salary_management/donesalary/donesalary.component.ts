@@ -18,6 +18,10 @@ export class DonesalaryComponent implements OnInit {
 
   constructor(private _salaryser:SalarymanagementService,public _router:Router) { }
 
+  BackButton()
+  {
+    this._router.navigate(['CashierHomepage/Viewsalary']);
+  }
   ngOnInit() {
     this._salaryser.getDoneEmp().subscribe(
       (data:any[])=>

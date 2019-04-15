@@ -1,7 +1,7 @@
 <div class="container">
     <h1 style="margin-left:500px">Update Profile</h1>
     <!-- <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1100px">&nbsp;&nbsp; BACK</button> -->
-    <form class="example-form" >
+    <form class="example-form" (ngSubmit)="addForm(f1)" #f1="ngForm">
       <mat-form-field class="example-full-width" >
           <b>{{"Your Email"}}</b>
         <input matInput  [(ngModel)]="employee_email" name="employee_email" disabled>
@@ -9,14 +9,23 @@
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Your Password"}}</b>
-        <input matInput  [(ngModel)]="employee_password" name="employee_password" disabled>
+        <input matInput  [(ngModel)]="employee_password" name="employee_password" id="employee_password" #pass="ngModel" required>
       </mat-form-field>
+      <div [hidden]="pass.valid || pass.untouched">
+        <div [hidden]="!pass?.errors?.required"></div>
+        <mat-error>Password is required*</mat-error>
+      </div>
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Name"}}</b>
-        <input matInput  [(ngModel)]="employee_name" name="employee_name">
+        <input matInput  [(ngModel)]="employee_name" name="employee_name" id="employee_name" #name="ngModel" required>
       </mat-form-field>
+      <div [hidden]="name.valid || name.untouched">
+        <div [hidden]="!name?.errors?.required"></div>
+        <mat-error>Name is required*</mat-error>
+      </div>
       <br>
+
       <mat-form-field class="example-full-width" >
           <b>{{"Joining-Date"}}</b>
         <input matInput  name="employee_joining_date" disabled>{{employee_joining_date | date:'dd-MM-yyyy'}}
@@ -34,28 +43,44 @@
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Contact Number"}}</b>
-        <input matInput  [(ngModel)]="employee_mobileno" name="employee_mobileno">
+        <input matInput  [(ngModel)]="employee_mobileno" name="employee_mobileno" id="employee_mobileno" #no="ngModel" required>
       </mat-form-field>
+      <div [hidden]="no.valid || no.untouched">
+        <div [hidden]="!no?.errors?.required"></div>
+        <mat-error>Mobile Number is required*</mat-error>
+      </div>
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"City"}}</b>
-        <input matInput [(ngModel)]="employee_city" name="employee_city">
+        <input matInput [(ngModel)]="employee_city" name="employee_city" id="employee_city" #city="ngModel" required>
       </mat-form-field>
+      <div [hidden]="city.valid || city.untouched">
+        <div [hidden]="!city?.errors?.required"></div>
+        <mat-error>City is required*</mat-error>
+      </div>
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Gender"}}</b>
-        <input matInput [(ngModel)]="employee_gender" name="employee_gender">
+        <input matInput [(ngModel)]="employee_gender" name="employee_gender" id="employee_gender" #gender="ngModel" required>
       </mat-form-field>
+      <div [hidden]="gender.valid || gender.untouched">
+        <div [hidden]="!gender?.errors?.required"></div>
+        <mat-error>Gender is required*</mat-error>
+      </div>
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Address"}}</b>
-        <input matInput [(ngModel)]="employee_address" name="employee_address" >
+        <input matInput [(ngModel)]="employee_address" name="employee_address" id="employee_address" #add="ngModel" required>
       </mat-form-field>
+      <div [hidden]="add.valid || add.untouched">
+        <div [hidden]="!add?.errors?.required"></div>
+        <mat-error>Address is required*</mat-error>
+      </div>
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Salary Status"}}</b>
         <input matInput [(ngModel)]="salary_status" name="salary_status" disabled>
       </mat-form-field>
       <br>
-        <button   mat-raised-button color="primary" style="margin-left:100px" (click)="OnSave()">&nbsp;&nbsp; Update</button>
-        <button   mat-raised-button color="primary" style="margin-left:100px" routerLink="../..">&nbsp;&nbsp; Cancel</button>
+        <button   mat-raised-button color="primary" [disabled]="!f1.valid" style="margin-left:100px" (click)="OnSave()">&nbsp;&nbsp; <mat-icon>save</mat-icon>SAVE</button>
+        <button   mat-raised-button color="primary" style="margin-left:100px" (click)="CancelButton()">&nbsp;&nbsp;<mat-icon>cancel</mat-icon> Cancel</button>

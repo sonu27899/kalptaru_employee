@@ -18,7 +18,7 @@ export class UpdatecategoryComponent implements OnInit {
   {
      this._catser.updatecategory(new category(this.category_id,this.category_name)).subscribe(
        (data:any)=>{
-         console.log(data);
+         alert("Your Category Is Updated Successfully");
         this._router.navigate(['ManagerHomepage/viewcategory']);
        }
     )

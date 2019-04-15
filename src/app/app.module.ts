@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { EmpLoginComponent } from './General/emp-login/emp-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatRadioModule,MatButtonModule,MatSidenavModule,MatInputModule,MatSelectModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatIconModule, MatToolbarModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatCheckboxModule} from '@angular/material';
-
+import { MatRadioModule,MatButtonModule,MatSidenavModule,MatInputModule,MatSelectModule,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatIconModule, MatToolbarModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatCheckboxModule,MatDatepickerModule,MatNativeDateModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { CashierhomepageComponent } from './Cashier/cashierhomepage/cashierhomepage.component';
@@ -34,7 +34,16 @@ import { MyworkComponent } from './Delievery_Boy/mywork/mywork.component';
 import { ViewcategoryComponent } from './Manager/viewcategory/viewcategory.component';
 import { UpdatecategoryComponent } from './Manager/updatecategory/updatecategory.component';
 import { AddcategoryComponent } from './Manager/addcategory/addcategory.component';
-import { WorkerHomepageComponent } from './Worker/worker-homepage/worker-homepage.component'
+import { WorkerHomepageComponent } from './Worker/worker-homepage/worker-homepage.component';
+import { MyloanComponent } from './Manager/myloan/myloan.component';
+import { UploadImageComponent } from './Manager/product_management/upload-image/upload-image.component';
+import { DialogboxComponent } from './General/dialogbox/dialogbox.component';
+import { ForgetPasswordComponent } from './General/forget-password/forget-password.component';
+import { ChangepasswordComponent } from './General/changepassword/changepassword.component';
+import { LeavemanagementComponent } from './General/leavemanagement/leavemanagement.component';
+import { MyleaveComponent } from './General/myleave/myleave.component';
+import { TermsandconditionComponent } from './General/termsandcondition/termsandcondition.component';
+import { OrderdetailsComponent } from './Cashier/orderdetails/orderdetails.component'
 
 @NgModule({
   declarations: [
@@ -61,13 +70,26 @@ import { WorkerHomepageComponent } from './Worker/worker-homepage/worker-homepag
     ViewcategoryComponent,
     UpdatecategoryComponent,
     AddcategoryComponent,
-    WorkerHomepageComponent
+    WorkerHomepageComponent,
+    MyloanComponent,
+    UploadImageComponent,
+    DialogboxComponent,
+    ForgetPasswordComponent,
+    ChangepasswordComponent,
+    LeavemanagementComponent,
+    MyleaveComponent,
+    TermsandconditionComponent,
+    OrderdetailsComponent
   ],
+  entryComponents: [DialogboxComponent],
   imports: [
     routing,
     BrowserModule,
     AppRoutingModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     HttpClientModule,
+    MatDialogModule,
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,

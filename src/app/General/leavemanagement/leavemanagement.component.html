@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 style="text-align:center;">ADD LEAVE </h1>
+    <form class="example-form" (ngSubmit)="addForm(f1)" #f1="ngForm">
+        <button (click)="onmyleavebutton()" mat-raised-button color="primary">My Leave</button>
+        <br>
+        <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput type="text" placeholder="Enter Leave Reason" [(ngModel)]="leave_msg" name="leave_msg" id="leave_msg" #reason="ngModel" required>
+      </mat-form-field>
+      <div [hidden]="reason.valid || reason.untouched">
+        <div [hidden]="!reason?.errors?.required"></div>
+        <mat-error>Leave Reason is required*</mat-error>
+      </div>
+      <br>
+
+
+      <mat-form-field class="example-full-width" >
+        <input matInput type="number" placeholder="Enter leave Days" [(ngModel)]="leave_days" name="leave_days" id="leave_days" #days="ngModel" required>
+      </mat-form-field>
+      <div [hidden]="days.valid || days.untouched">
+        <div [hidden]="!days?.errors?.required"></div>
+        <mat-error>Leave Days is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="pickerFrom" placeholder="Choose Date From Leave" [(ngModel)]="leave_from_date" name="leave_from_date" id="leave_from_date" #date="ngModel" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #pickerFrom></mat-datepicker>
+      </mat-form-field>
+      <div [hidden]="date.valid || date.untouched">
+        <div [hidden]="!date?.errors?.required"></div>
+        <mat-error>Date From Leave is required*</mat-error>
+      </div>
+      <br>
+        <button [disabled]="!f1.valid"  (click)="onAddLeaveButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp;<mat-icon>add</mat-icon> APPLY</button>
+        &nbsp;&nbsp;&nbsp;<button   mat-raised-button color="primary" (click)="CancelButton()">&nbsp;&nbsp;&nbsp;<mat-icon>cancel</mat-icon> CANCEL</button>

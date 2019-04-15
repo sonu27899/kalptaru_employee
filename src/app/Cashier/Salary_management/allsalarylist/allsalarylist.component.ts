@@ -31,6 +31,14 @@ export class AllsalarylistComponent implements OnInit {
       }
     );
   }
+  onpendingsalary()
+  {
+    this._router.navigate(['CashierHomepage/pendingsalary']);
+  }
+  ondonesalary()
+  {
+    this._router.navigate(['CashierHomepage/donesalary']);
+  }
   ngOnInit() {
     this._salaryser.getAllEmp().subscribe(
       (data:any[])=>

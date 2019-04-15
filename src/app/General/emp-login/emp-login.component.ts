@@ -17,22 +17,29 @@ export class EmpLoginComponent implements OnInit {
   ngOnInit() {}
 
   onLogin() {
-    this._loginser
-      .getLogin(new Login(this.employee_email, this.employee_password))
-      .subscribe((data: Login[]) => {
+    this._loginser.getLogin(new Login(this.employee_email, this.employee_password)).subscribe(
+      (data: Login[]) => {
 
 
-        if (data.length == 1) {
+        if (data.length == 1)
+        {
+
           localStorage.setItem("email", this.employee_email);
 
-          if (data[0].employee_designation == "Manager") {
+          if (data[0].employee_designation == "Manager")
+          {
             alert("Welcome Manager");
+            localStorage.setItem("designation",data[0].employee_designation);
+
             this._route.navigate(['ManagerHomepage']);
           }
-          else if (data[0].employee_designation == "Worker") {
+          else if (data[0].employee_designation == "Worker")
+          {
             alert("Welcome Worker");
+            this._route.navigate(['WorkerHomepage']);
           }
-          else if(data[0].employee_designation=='Cashier'){
+          else if(data[0].employee_designation=='Cashier')
+          {
             alert("Welcome Cashier");
             this._route.navigate(['CashierHomepage']);
           }
@@ -41,7 +48,8 @@ export class EmpLoginComponent implements OnInit {
             alert("Welcome Delievery_Boy");
             this._route.navigate(['DelieveryHomepage']);
           }
-        } else {
+        }
+         else {
           alert("Email Or Password Incorrect");
         }
       });

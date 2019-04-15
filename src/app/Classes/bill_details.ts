@@ -1,11 +1,11 @@
 export class bill_details
 {
   constructor(
-      public bill_detail_id:number,
-      public fk_bill_id:number,
+      public order_details_id:number,
+      public fk_order_id:number,
       public fk_product_id:number,
-      public bill_price:number,
-      public bill_qty:number,
-      public bill_remarks:String,
+      public fk_category_id:number,
+      public fk_product_price:number,
+      public product_qty:number
       ){}
 }

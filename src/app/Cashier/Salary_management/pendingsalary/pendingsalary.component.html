@@ -1,6 +1,8 @@
 <div class="container">
-  <h3>Pending Salary</h3>
-
+  <h3 style="text-align: center">Pending Salary</h3>
+  <button  mat-raised-button color="primary" (click)="BackButton()"><mat-icon>keyboard_backspace</mat-icon>BACK</button>
+  <br>
+  <br>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="employee_name">

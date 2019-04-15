@@ -35,7 +35,7 @@ export class ViewproductComponent implements OnInit {
         console.log(data);
         this.deleteProductArray.splice(this.deleteProductArray.indexOf(item),1);
         this.dataSource.data.splice(this.dataSource.data.indexOf(item),1);
-        console.log(this.dataSource.data);
+
         this.dataSource.data=this.product;
       }
     )

@@ -1,13 +1,17 @@
 <div class="container">
-  <h1 style="margin-left:500px">ADD PRODUCT</h1>
-  <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1100px">&nbsp;&nbsp; BACK</button>
-  <form class="example-form" >
+  <h1 style="text-align: center">ADD CATEGORY</h1>
+  <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1000px">&nbsp;&nbsp;<mat-icon>keyboard_backspace</mat-icon> BACK</button>
+  <form class="example-form" (ngSubmit)="addForm(f1)" #f1="ngForm">
 
-    <form class="example-form">
+
     <mat-form-field class="example-full-width" >
-      <input matInput placeholder="Category name" [(ngModel)]="category_name" name="category_name">
+      <input matInput placeholder="Category name" [(ngModel)]="category_name" name="category_name" id="category_name" #name="ngModel" required>
     </mat-form-field>
 
+    <div [hidden]="name.valid || name.untouched">
+      <div [hidden]="!name?.errors?.required"></div>
+      <mat-error>Name is required*</mat-error>
+    </div>
 <br>
-      <button  (click)="onAddCategoryButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp; ADD</button>
-      &nbsp;&nbsp;&nbsp;<button   mat-raised-button color="primary" routerLink='viewcategory'>&nbsp;&nbsp;&nbsp; CANCEL</button>
+      <button [disabled]="!f1.valid" (click)="onAddCategoryButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp;<mat-icon>add</mat-icon> ADD</button>
+      &nbsp;&nbsp;&nbsp;<button   mat-raised-button color="primary" (click)="BackButton()">&nbsp;&nbsp;&nbsp;<mat-icon>cancel</mat-icon> CANCEL</button>

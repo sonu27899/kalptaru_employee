@@ -17,7 +17,10 @@ export class PendingsalaryComponent implements OnInit {
   dataSource=new MatTableDataSource();
 
   constructor(private _salaryser:SalarymanagementService,public _router:Router) { }
-
+  BackButton()
+  {
+    this._router.navigate(['CashierHomepage/Viewsalary']);
+  }
   ngOnInit() {
     this._salaryser.getPendingEmp().subscribe(
       (data:any[])=>

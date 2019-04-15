@@ -9,11 +9,16 @@ export class OrdermanagementService {
   private order_url="http://localhost:3000/empvieworder/";
   private my_work_url="http://localhost:3000/empviewwork/";
   private get_delievery_boy="http://localhost:3000/empgetdelieveryboy/";
+  private bill_details_url='http://localhost:3000/empgetbilldetails/';
   constructor(private _http:HttpClient) { }
 
   getAllOrder()
   {
     return this._http.get(this.order_url);
+  }
+  getBillDetails(order_id)
+  {
+    return this._http.get(this.bill_details_url+order_id);
   }
   updateStatus(item:orderstatus){
     let body=JSON.stringify(item);

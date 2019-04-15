@@ -20,15 +20,43 @@ export class UpdateprofileComponent implements OnInit {
   employee_gender:String;
   employee_address:String;
   salary_status:String;
+
   constructor(private  _personalservice:PersonaldataService,private _acroute:ActivatedRoute,public _route:Router) { }
   OnSave()
   {
       this._personalservice.updateProfile(new employee(this.employee_email,this.employee_password,this.employee_name,this.employee_joining_date,this.employee_salary,this.employee_designation,this.employee_mobileno,this.employee_city,this.employee_gender,this.employee_address,this.salary_status)).subscribe(
         (data:any)=>{
-          alert("Successfully Updated");
+          alert("Your Profile Is Successfully Updated");
+          if(this.employee_designation=="Manager")
+          {
+            this._route.navigate(['ManagerHomepage']);
+          }
+          else if(this.employee_designation=="Cashier")
+          {
+            this._route.navigate(['CashierHomepage']);
+          }
+          else
+          {
+            this._route.navigate(['DelieveryHomepage']);
+          }
         }
       )
 
+  }
+  CancelButton()
+  {
+    if(this.employee_designation=="Manager")
+    {
+      this._route.navigate(['ManagerHomepage/myprofile',localStorage.getItem('email')]);
+    }
+    else if(this.employee_designation==="Cashier")
+    {
+      this._route.navigate(['CashierHomepage/myprofile',localStorage.getItem('email')]);
+    }
+    else
+    {
+      this._route.navigate(['DelieveryHomepage/myprofile',localStorage.getItem('email')]);
+    }
   }
   ngOnInit() {
 

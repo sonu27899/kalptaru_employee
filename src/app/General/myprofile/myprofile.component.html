@@ -57,5 +57,5 @@
       <input matInput [(ngModel)]="salary_status" name="salary_status" disabled>
     </mat-form-field>
     <br>
-      <button   mat-raised-button color="primary" style="margin-left:100px" (click)="OnUpdate()">&nbsp;&nbsp; Update</button>
-      <button   mat-raised-button color="primary" style="margin-left:100px" routerLink="/CashierHomepage">&nbsp;&nbsp; Cancel</button>
+      <button   mat-raised-button color="primary" style="margin-left:100px" (click)="OnUpdate()">&nbsp;&nbsp;<mat-icon>update</mat-icon> Update</button>
+      <button   mat-raised-button color="primary" style="margin-left:100px" (click)="CancelButton()">&nbsp;&nbsp;<mat-icon>cancel</mat-icon> Cancel</button>

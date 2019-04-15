@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h1 style="text-align: center">Login Page</h1>
   <br>
   <h4>User_Email</h4>
@@ -11,9 +11,9 @@
         <input matInput  [(ngModel)]="employee_password" [type]="hide ? 'text' : 'password'">
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       </mat-form-field>
-  <!-- <mat-form-field class="example-full-width">
+   <mat-form-field class="example-full-width">
     <input matInput type="password" [(ngModel)]="user_password" >
-  </mat-form-field> -->
+  </mat-form-field>
   <br>
 
   <br>
@@ -23,4 +23,37 @@
 
   </div>
 
+</div> -->
+
+
+<body>
+  <br>
+  <h1 style="text-align: center;font-family: Arial, Helvetica, sans-serif;font-size: 50px;color: white">Login Page</h1><br><br><br>
+<div class="container">
+<div class="left"></div>
+<div class="right">
+  <div class="formBox">
+    <form (ngSubmit)="addForm(f1)" #f1="ngForm">
+      <p>Username</p>
+      <input type="text" name="email" placeholder="Enter Email" [(ngModel)]="employee_email" id="employee_email" #email="ngModel" required>
+
+      <div [hidden]="email.valid || email.untouched">
+          <div [hidden]="!email?.errors?.required"></div>
+          <mat-error>Email is required*</mat-error>
+        </div>
+
+      <p>Password</p>
+      <input type="password" name="password" placeholder="Enter Password" [(ngModel)]="employee_password" [type]="hide ? 'text' : 'password'" id="employee_password" #pass="ngModel" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <div [hidden]="pass.valid || pass.untouched">
+          <div [hidden]="!pass?.errors?.required"></div>
+          <mat-error>Password is required*</mat-error>
+        </div>
+
+<br>
+      <input type="submit" [disabled]="!f1.valid" name="" value="Login" (click)="onLogin()">
+    </form>
+  </div>
 </div>
+</div>
+</body>

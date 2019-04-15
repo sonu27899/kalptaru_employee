@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from '../../../Classes/product_class';
 import { ProductService } from '../../../Services/productmanagement.service';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { CategoryServiceService } from 'src/app/Services/category-service.service';
 import { category } from 'src/app/Classes/category_class';
@@ -26,11 +26,14 @@ export class AddproductComponent implements OnInit {
   product_width:number;
   product_depth:number;
   product_qty:number;
-  product_soh:number;
+  product_offer:string;
+
   categoryarr:category[]=[];
   dataSource=new MatTableDataSource;
   addProductArray:product[]=[];
   selectedfile:File=null;
+  selectedfile2:File=null;
+  selectedfile3:File=null;
   constructor(private _productservice:ProductService,private _router:Router,private _catser:CategoryServiceService) { }
   onAddProductButton()
   {
@@ -47,7 +50,7 @@ export class AddproductComponent implements OnInit {
 
     var fd = new FormData();
       fd.append('product_name', this.product_name);
-      fd.append('category_id', this.category_id.toString());
+      fd.append('fk_category_id', this.category_id.toString());
       fd.append('product_price', this.product_price.toString());
       fd.append('product_colour', this.product_colour);
       fd.append('product_image', this.selectedfile, this.selectedfile.name);
@@ -59,12 +62,24 @@ export class AddproductComponent implements OnInit {
       fd.append('product_width', this.product_width.toString());
       fd.append('product_depth', this.product_depth.toString());
       fd.append('product_qty', this.product_qty.toString());
-      fd.append('product_soh', this.product_soh.toString());
+      fd.append('product_offer', this.product_qty.toString());
+
 
       this._productservice.addproduct(fd).subscribe(
         (data: any) => {
           console.log(data);
-          // this._router.navigate(['menunav/:user_email/product']);
+          var fd1 = new FormData();
+          console.log(data.insertId);
+          fd1.append('fk_product_id',data.insertId);
+          fd1.append('product_image',this.selectedfile, this.selectedfile.name);
+            this._productservice.addimage(fd1).subscribe(
+              (data:any)=>{
+                alert("Product Added Successfully");
+                this._router.navigate(['ManagerHomepage/viewproduct']);
+              }
+            );
+
+
         }
       )
 
@@ -72,8 +87,13 @@ export class AddproductComponent implements OnInit {
   onselect(value)
 {
   this.selectedfile=<File>value.target.files[0];
+
 }
   BackButton()
+  {
+    this._router.navigate(['ManagerHomepage/viewproduct']);
+  }
+  CancelButton()
   {
     this._router.navigate(['ManagerHomepage/viewproduct']);
   }

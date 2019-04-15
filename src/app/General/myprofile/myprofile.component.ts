@@ -22,7 +22,21 @@ export class MyprofileComponent implements OnInit {
   employee_address:String;
   salary_status:String;
   constructor(private _personalservice:PersonaldataService,private _activatedroutes:ActivatedRoute,public _router:Router) { }
-
+  CancelButton()
+  {
+    if(this.employee_designation=="Manager")
+    {
+      this._router.navigate(['ManagerHomepage']);
+    }
+    else if(this.employee_designation==="Cashier")
+    {
+      this._router.navigate(['CashierHomepage']);
+    }
+    else
+    {
+      this._router.navigate(['DelieveryHomepage']);
+    }
+  }
   OnUpdate()
   {
     if(this.employee_designation=="Cashier")
@@ -35,7 +49,7 @@ export class MyprofileComponent implements OnInit {
 
   ngOnInit() {
     this.employee_email=this._activatedroutes.snapshot.params['email'];
-
+    this.employee_designation=localStorage.getItem('designation');
 
     this._personalservice.getProfileByEmail(this.employee_email).subscribe(
       (data:any)=>{

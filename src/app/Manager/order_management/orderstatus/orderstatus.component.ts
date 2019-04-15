@@ -14,7 +14,7 @@ import { employee } from 'src/app/Classes/employee_class';
 })
 export class OrderstatusComponent implements OnInit {
   orderarr:orderstatus[]=[];
-  displayedColumns: string[]=['order_id','order_date','order_amount','fk_product_id','fk_category_id','fk_user_email','Address','order_status','Delievery Assign To','Action'];
+  displayedColumns: string[]=['order_id','order_date','order_amount','fk_user_email','Address','order_status','Delievery Assign To','Action'];
   dataSource=new MatTableDataSource();
   dataSource1=new MatTableDataSource();
   i:number;
