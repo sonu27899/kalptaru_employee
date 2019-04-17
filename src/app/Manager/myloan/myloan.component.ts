@@ -14,7 +14,7 @@ export class MyloanComponent implements OnInit {
   employee_email:string;
   emploan:loan[]=[];
   employee_designation:string;
-  displayedColumns: string[] = ['loan_amount','issued_date','loan_status','loan_reason','duration'];
+  displayedColumns: string[] = ['loan_amount','issued_date','loan_status','loan_reason','duration','payment_per_month'];
   dataSource=new MatTableDataSource();
   @ViewChild(MatPaginator)paginator:MatPaginator;
   constructor(private _loanser:LoanService,private _router:Router) { }
@@ -46,6 +46,7 @@ export class MyloanComponent implements OnInit {
     this._loanser.getmyloan(this.employee_email).subscribe(
       (data:any)=>
       {
+
         this.emploan=data;
           this.dataSource.data=this.emploan;
       }

@@ -64,7 +64,7 @@
 
 
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Weight" [(ngModel)]="product_weight" name="product_weight" id="product_weight" #weight="ngModel" required>
+        <input matInput type="number" placeholder="Product Weight(In KG.)" [(ngModel)]="product_weight" name="product_weight" id="product_weight" #weight="ngModel" required>
       </mat-form-field>
 
       <div [hidden]="weight.valid || weight.untouched">
@@ -74,7 +74,7 @@
       <br>
 
         <mat-form-field class="example-full-width" >
-          <input matInput placeholder="Product Warranty" [(ngModel)]="product_warranty" name="product_warranty" id="product_warranty" #warranty="ngModel" required>
+          <input matInput type="number" placeholder="Product Warranty(In Years)" [(ngModel)]="product_warranty" name="product_warranty" id="product_warranty" #warranty="ngModel" required>
         </mat-form-field>
 
         <div [hidden]="warranty.valid || warranty.untouched">
@@ -84,7 +84,7 @@
         <br>
 
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Material" [(ngModel)]="product_material" name="product_material" id="product_material" #mat="ngModel" required>
+        <input matInput  placeholder="Product Material" [(ngModel)]="product_material" name="product_material" id="product_material" #mat="ngModel" required>
       </mat-form-field>
 
       <div [hidden]="mat.valid || mat.untouched">
@@ -104,7 +104,7 @@
       <br>
 
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Height" [(ngModel)]="product_height" name="product_height" id="product_height" #height="ngModel" required>
+        <input matInput type="number" placeholder="Product Height(In INCHES)" [(ngModel)]="product_height" name="product_height" id="product_height" #height="ngModel" required>
       </mat-form-field>
 
       <div [hidden]="height.valid || height.untouched">
@@ -114,7 +114,7 @@
       <br>
 
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Width" [(ngModel)]="product_width" name="product_width" id="product_width" #width="ngModel" required>
+        <input matInput type="number" placeholder="Product Width(In INCHES)" [(ngModel)]="product_width" name="product_width" id="product_width" #width="ngModel" required>
       </mat-form-field>
 
       <div [hidden]="width.valid || width.untouched">
@@ -124,7 +124,7 @@
       <br>
 
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Depth" [(ngModel)]="product_depth" name="product_depth" id="product_depth" #depth="ngModel" required>
+        <input matInput type="number" placeholder="Product Depth(In INCHES)" [(ngModel)]="product_depth" name="product_depth" id="product_depth" #depth="ngModel" required>
       </mat-form-field>
 
       <div [hidden]="depth.valid || depth.untouched">
@@ -134,7 +134,7 @@
       <br>
 
       <mat-form-field class="example-full-width" >
-        <input matInput placeholder="Product Quantity" [(ngModel)]="product_qty" name="product_qty" id="product_qty" #qty="ngModel" required>
+        <input matInput type="number" placeholder="Product Quantity" [(ngModel)]="product_qty" name="product_qty" id="product_qty" #qty="ngModel" required>
       </mat-form-field>
 
       <div [hidden]="qty.valid || qty.untouched">

@@ -43,7 +43,7 @@
       <br>
       <mat-form-field class="example-full-width" >
           <b>{{"Contact Number"}}</b>
-        <input matInput  [(ngModel)]="employee_mobileno" name="employee_mobileno" id="employee_mobileno" #no="ngModel" required>
+        <input matInput type="number" maxlength="10"  [(ngModel)]="employee_mobileno" name="employee_mobileno" id="employee_mobileno" #no="ngModel" required>
       </mat-form-field>
       <div [hidden]="no.valid || no.untouched">
         <div [hidden]="!no?.errors?.required"></div>

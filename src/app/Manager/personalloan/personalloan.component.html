@@ -6,7 +6,7 @@
 <br>
 <form class="example-form" (ngSubmit)="addForm(f1)" #f1="ngForm">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Enter Amount to be withdraw" type="number" [(ngModel)]="loan_amount" name="loan_amount" id="loan_amount" #amt="ngModel" required>
+    <input matInput type="number" placeholder="Enter Amount to be withdraw" type="number" [(ngModel)]="loan_amount" name="loan_amount" id="loan_amount" #amt="ngModel" required>
   </mat-form-field>
 
   <div [hidden]="amt.valid || amt.untouched">
