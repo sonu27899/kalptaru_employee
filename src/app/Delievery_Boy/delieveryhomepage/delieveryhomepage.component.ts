@@ -20,6 +20,12 @@ export class DelieveryhomepageComponent{
   {
     this._router.navigate(['DelieveryHomepage/myprofile',localStorage.getItem('email')])
   }
+  onlogout()
+  {
+    localStorage.setItem('email',"");
+    localStorage.setItem('designation',"");
+    this._router.navigate(['']);
+  }
 
   constructor(private breakpointObserver: BreakpointObserver,public _router:Router) {}
 

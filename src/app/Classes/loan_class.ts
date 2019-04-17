@@ -7,6 +7,7 @@ export class loan
   public loan_issued_date:Date,
   public last_installment_date:Date,
   public loan_reason:string,
-  public loan_months:number)
+  public loan_months:number,
+  public pay_per_month:number)
   {}
 }

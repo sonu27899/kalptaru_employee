@@ -20,6 +20,12 @@ export class ManagerhomepageComponent {
   {
     this._router.navigate(['ManagerHomepage/myprofile',localStorage.getItem('email')])
   }
+  onlogout()
+  {
+    localStorage.setItem('email',"");
+    localStorage.setItem('designation',"");
+    this._router.navigate(['']);
+  }
 
   constructor(private breakpointObserver: BreakpointObserver,private _router:Router) {}
 

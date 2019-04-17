@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoanService } from 'src/app/Services/loan.service';
 import { employee } from 'src/app/Classes/employee_class';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { loan } from 'src/app/Classes/loan_class';
 import { Router } from '@angular/router';
 
@@ -16,6 +16,7 @@ export class MyloanComponent implements OnInit {
   employee_designation:string;
   displayedColumns: string[] = ['loan_amount','issued_date','loan_status','loan_reason','duration'];
   dataSource=new MatTableDataSource();
+  @ViewChild(MatPaginator)paginator:MatPaginator;
   constructor(private _loanser:LoanService,private _router:Router) { }
 
   BackButton()
@@ -38,6 +39,7 @@ export class MyloanComponent implements OnInit {
     }
   }
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
     this.employee_email=localStorage.getItem('email');
     this.employee_designation=localStorage.getItem('designation');
 

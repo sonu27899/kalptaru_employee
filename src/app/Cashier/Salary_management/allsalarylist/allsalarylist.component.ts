@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { emp_salary } from '../../../Classes/salary_class';
 import { Router } from "@angular/router";
 import { MatTableDataSource,MatPaginator } from '../../../../../node_modules/@angular/material';
@@ -18,6 +18,7 @@ export class AllsalarylistComponent implements OnInit {
   dataSource=new MatTableDataSource();
 
   update_salaryarr:update_salary[];
+  @ViewChild(MatPaginator)paginator:MatPaginator;
   constructor(private _salaryser:SalarymanagementService,public _router:Router) { }
   UpdateStatus(element)
   {
@@ -40,6 +41,7 @@ export class AllsalarylistComponent implements OnInit {
     this._router.navigate(['CashierHomepage/donesalary']);
   }
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
     this._salaryser.getAllEmp().subscribe(
       (data:any[])=>
       {

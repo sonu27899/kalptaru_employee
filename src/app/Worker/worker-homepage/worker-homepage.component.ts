@@ -16,7 +16,12 @@ export class WorkerHomepageComponent {
     .pipe(
       map(result => result.matches)
     );
-
+    onlogout()
+    {
+      localStorage.setItem('email',"");
+      localStorage.setItem('designation',"");
+      this._router.navigate(['']);
+    }
     onprofile()
   {
     this._router.navigate(['WorkerHomepage/myprofile',localStorage.getItem('email')])

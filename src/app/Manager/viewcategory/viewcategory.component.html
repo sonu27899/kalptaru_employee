@@ -1,6 +1,6 @@
 <h1 style="text-align: center">Category Managment</h1>
 <div class="example-button-row">
-    <button (click)="CategoryPage()"  mat-raised-button color="primary" style="margin-left:950px"><mat-icon>add</mat-icon> ADD CATEGORY</button>
+    <button (click)="CategoryPage()"  mat-raised-button color="primary" ><mat-icon>add</mat-icon> ADD CATEGORY</button>
   <!-- </div> -->
 <br>
 <br>
@@ -36,7 +36,7 @@
       <tr mat-row *matRowDef="let element; columns: displayedColumns;">
       </tr>
     </table>
-
+    <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
     <!-- <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator> -->
   </div>
 </div>

@@ -39,11 +39,12 @@
   </div>
   <br>
   <br>
-  <a style="margin-left:380px" routerLink="terms&condition">Terms & Condition</a>
+  <a style="margin-left:380px;color: blue" (click)="onterms()"><u>Terms & Condition</u></a>
   <br>
-  <mat-checkbox style="margin-left:350px"  name="agree" id="agree" checked  required #chk1>I Agree Terms And Condition</mat-checkbox>
+   <mat-checkbox style="margin-left:350px"  name="agree" id="agree" value="1" (change)="item()" [(ngModel)]="c1"  checked  required #chk1>I Agree Terms And Condition</mat-checkbox>
+
 
   <br>
   <br>
   <br>
-  <button [disabled]="!f1.valid && !chk1.checked" [disabled]="!chk1.checked" (click)="onAddLoanButton()" style="margin-left:300px;width: 200px" mat-raised-button color="primary"><mat-icon>add</mat-icon>Apply for Loan</button>
+  <button [disabled]="!f1.valid" *ngIf="!flag1" (click)="onAddLoanButton()" style="margin-left:300px;width: 200px" mat-raised-button color="primary"><mat-icon>add</mat-icon>Apply for Loan</button>

@@ -31,25 +31,25 @@ export class EmpLoginComponent implements OnInit {
             alert("Welcome Manager");
             localStorage.setItem("designation",data[0].employee_designation);
 
-            this._route.navigate(['ManagerHomepage']);
+            this._route.navigate(['ManagerHomepage/viewproduct']);
           }
           else if (data[0].employee_designation == "Worker")
           {
             alert("Welcome Worker");
             localStorage.setItem("designation",data[0].employee_designation);
-            this._route.navigate(['WorkerHomepage']);
+            this._route.navigate(['WorkerHomepage/personalloan']);
           }
           else if(data[0].employee_designation=='Cashier')
           {
             alert("Welcome Cashier");
             localStorage.setItem("designation",data[0].employee_designation);
-            this._route.navigate(['CashierHomepage']);
+            this._route.navigate(['CashierHomepage/Viewbill']);
           }
           else if(data[0].employee_designation=="Delievery_Boy")
           {
             alert("Welcome Delievery_Boy");
             localStorage.setItem("designation",data[0].employee_designation);
-            this._route.navigate(['DelieveryHomepage']);
+            this._route.navigate(['DelieveryHomepage/mywork']);
           }
         }
          else {

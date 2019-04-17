@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 style="text-align: center">Pending Salary</h3>
+  <h2 style="text-align: center">Pending Salary</h2>
   <button  mat-raised-button color="primary" (click)="BackButton()"><mat-icon>keyboard_backspace</mat-icon>BACK</button>
   <br>
   <br>
@@ -50,4 +50,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
 </div>

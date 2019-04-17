@@ -25,60 +25,75 @@ import { UploadImageComponent } from './Manager/product_management/upload-image/
 import { ForgetPasswordComponent } from './General/forget-password/forget-password.component';
 import { LeavemanagementComponent } from './General/leavemanagement/leavemanagement.component';
 import { MyleaveComponent } from './General/myleave/myleave.component';
+import { PageNotFoundComponent } from './General/page-not-found/page-not-found.component';
+import { AuthGuardService } from './Services/auth-guard.service';
+import { TermsandconditionComponent } from './General/termsandcondition/termsandcondition.component';
+
 const arr:Routes=[
   {path:'forgetpassword',component:ForgetPasswordComponent},
+  {path:'not-found',component:PageNotFoundComponent},
+
   //Cashier
   {path:'',component:EmpLoginComponent},
-  {path:'CashierHomepage',component:CashierhomepageComponent,children:[
-  {path:'Viewbill',component:ViewbillComponent},
-  {path:'orderdetails/:order_id',component:BillDetailsComponent},
-  {path:'Viewsalary',component:AllsalarylistComponent},
-  {path:'pendingsalary',component:PendingsalaryComponent},
-  {path:'donesalary',component:DonesalaryComponent},
-  {path:'myprofile/:email',component:MyprofileComponent},
-  {path:'updateprofile/:email',component:UpdateprofileComponent},
-  {path:'myleave',component:MyleaveComponent}
+  {path:'CashierHomepage',component:CashierhomepageComponent,canActivate:[AuthGuardService],children:[
+  {path:'Viewbill',component:ViewbillComponent,canActivate:[AuthGuardService]},
+  {path:'personalloan',component:PersonalloanComponent,canActivate:[AuthGuardService]},
+  {path:'orderdetails/:order_id',component:BillDetailsComponent,canActivate:[AuthGuardService]},
+  {path:'Viewsalary',component:AllsalarylistComponent,canActivate:[AuthGuardService]},
+  {path:'pendingsalary',component:PendingsalaryComponent,canActivate:[AuthGuardService]},
+  {path:'donesalary',component:DonesalaryComponent,canActivate:[AuthGuardService]},
+  {path:'myprofile/:email',component:MyprofileComponent,canActivate:[AuthGuardService]},
+  {path:'updateprofile/:email',component:UpdateprofileComponent,canActivate:[AuthGuardService]},
+  {path:'myleave',component:MyleaveComponent,canActivate:[AuthGuardService]},
+  {path:'addleave',component:LeavemanagementComponent,canActivate:[AuthGuardService]},
+  {path:'myloan',component:MyloanComponent,canActivate:[AuthGuardService]},
+  {path:'terms',component:TermsandconditionComponent,canActivate:[AuthGuardService]}
 ]},
+
   //Manager
-  {path:'ManagerHomepage',component:ManagerhomepageComponent,children:[
-    {path:'viewproduct',component:ViewproductComponent},
-    {path:'addproduct',component:AddproductComponent},
-    {path:'updateproduct/:product_id',component:UpdateproductComponent},
-    {path:'orderstatus',component:OrderstatusComponent},
-    {path:'personalloan',component:PersonalloanComponent},
-    {path:'myprofile/:email',component:MyprofileComponent},
-    {path:'updateprofile/:email',component:UpdateprofileComponent},
-    {path:'viewcategory',component:ViewcategoryComponent},
-    {path:'updatecategory/:category_id',component:UpdatecategoryComponent},
-    {path:'addcategory',component:AddcategoryComponent},
-    {path:'myloan',component:MyloanComponent},
-    {path:'moreimage/:product_id',component:UploadImageComponent},
-    {path:'forgetpassword',component:ForgetPasswordComponent},
-    {path:'addleave',component:LeavemanagementComponent},
-    {path:'myleave',component:MyleaveComponent}
+  {path:'ManagerHomepage',component:ManagerhomepageComponent,canActivate:[AuthGuardService],children:[
+    {path:'viewproduct',component:ViewproductComponent,canActivate:[AuthGuardService]},
+    {path:'addproduct',component:AddproductComponent,canActivate:[AuthGuardService]},
+    {path:'orderdetails/:order_id',component:BillDetailsComponent,canActivate:[AuthGuardService]},
+    {path:'updateproduct/:product_id',component:UpdateproductComponent,canActivate:[AuthGuardService]},
+    {path:'orderstatus',component:OrderstatusComponent,canActivate:[AuthGuardService]},
+    {path:'personalloan',component:PersonalloanComponent,canActivate:[AuthGuardService]},
+    {path:'myprofile/:email',component:MyprofileComponent,canActivate:[AuthGuardService]},
+    {path:'updateprofile/:email',component:UpdateprofileComponent,canActivate:[AuthGuardService]},
+    {path:'viewcategory',component:ViewcategoryComponent,canActivate:[AuthGuardService]},
+    {path:'updatecategory/:category_id',component:UpdatecategoryComponent,canActivate:[AuthGuardService]},
+    {path:'addcategory',component:AddcategoryComponent,canActivate:[AuthGuardService]},
+    {path:'myloan',component:MyloanComponent,canActivate:[AuthGuardService]},
+    {path:'moreimage/:product_id',component:UploadImageComponent,canActivate:[AuthGuardService]},
+    {path:'forgetpassword',component:ForgetPasswordComponent,canActivate:[AuthGuardService]},
+    {path:'addleave',component:LeavemanagementComponent,canActivate:[AuthGuardService]},
+    {path:'myleave',component:MyleaveComponent,canActivate:[AuthGuardService]},
+    {path:'terms',component:TermsandconditionComponent,canActivate:[AuthGuardService]}
 ]},
 
   //DelieveryBoy
-  {path:'DelieveryHomepage',component:DelieveryhomepageComponent,children:[
-    {path:'myprofile/:email',component:MyprofileComponent},
-    {path:'updateprofile/:email',component:UpdateprofileComponent},
-    {path:'mywork',component:MyworkComponent},
-    {path:'personalloan',component:PersonalloanComponent},
-    {path:'myloan',component:MyloanComponent},
-    {path:'addleave',component:LeavemanagementComponent},
-    {path:'myleave',component:MyleaveComponent}
+  {path:'DelieveryHomepage',component:DelieveryhomepageComponent,canActivate:[AuthGuardService],children:[
+    {path:'myprofile/:email',component:MyprofileComponent,canActivate:[AuthGuardService]},
+    {path:'updateprofile/:email',component:UpdateprofileComponent,canActivate:[AuthGuardService]},
+    {path:'mywork',component:MyworkComponent,canActivate:[AuthGuardService]},
+    {path:'personalloan',component:PersonalloanComponent,canActivate:[AuthGuardService]},
+    {path:'myloan',component:MyloanComponent,canActivate:[AuthGuardService]},
+    {path:'addleave',component:LeavemanagementComponent,canActivate:[AuthGuardService]},
+    {path:'myleave',component:MyleaveComponent,canActivate:[AuthGuardService]},
+    {path:'terms',component:TermsandconditionComponent,canActivate:[AuthGuardService]}
   ]},
 
   //Worker
-  {path:'WorkerHomepage',component:WorkerHomepageComponent,children:[
-    {path:'myprofile/:email',component:MyprofileComponent},
-    {path:'addleave',component:LeavemanagementComponent},
-    {path:'updateprofile/:email',component:UpdateprofileComponent},
-    {path:'personalloan',component:PersonalloanComponent},
-    {path:'myloan',component:MyloanComponent},
-    {path:'updateprofile/:email',component:UpdateprofileComponent},
-    {path:'myleave',component:MyleaveComponent}
+  {path:'WorkerHomepage',component:WorkerHomepageComponent,canActivate:[AuthGuardService],children:[
+    {path:'myprofile/:email',component:MyprofileComponent,canActivate:[AuthGuardService]},
+    {path:'addleave',component:LeavemanagementComponent,canActivate:[AuthGuardService]},
+    {path:'updateprofile/:email',component:UpdateprofileComponent,canActivate:[AuthGuardService]},
+    {path:'personalloan',component:PersonalloanComponent,canActivate:[AuthGuardService]},
+    {path:'myloan',component:MyloanComponent,canActivate:[AuthGuardService]},
+    {path:'myleave',component:MyleaveComponent,canActivate:[AuthGuardService]},
+    {path:'terms',component:TermsandconditionComponent,canActivate:[AuthGuardService]}
   ]},
+  {path:'**',redirectTo:'/not-found',pathMatch:'full'}
 
 ];
 export const routing=RouterModule.forRoot(arr);

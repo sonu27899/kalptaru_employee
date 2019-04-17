@@ -49,17 +49,18 @@
 
 
 
-<br><h1 style="text-align: center">Product Managment</h1><br>
+
+<h1 style="text-align: center;">Product Managment</h1><br>
 <div class="example-button-row">
-    <button (click)="ProductPage()" style="margin-left:1000px;"  mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
+    <button (click)="ProductPage()" mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
   </div>
   <br><br>
 
-<div class="row"  style="margin-left:270px">
+<div class="row" >
     <div class="col-md-11">
       <div class="row">
         <div *ngFor="let element of product" class="col-sm-6 col-md-4">
-          <div class="thumbnail" style="height:320px;width:250px;padding: 5px;">
+          <div class="thumbnail" style="height:320px;width:250px;">
                   <img src="http://localhost:3000/images/product_images/{{element.product_image}}">
                   <b style="font-size:20px;font-family: Arial, Helvetica, sans-serif">{{element.product_name}}</b><br>
                   {{"PRICE:"}}{{element.product_price}}<br>

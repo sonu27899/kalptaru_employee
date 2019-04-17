@@ -26,19 +26,19 @@ export class MyprofileComponent implements OnInit {
   {
     if(this.employee_designation=="Manager")
     {
-      this._router.navigate(['ManagerHomepage']);
+      this._router.navigate(['ManagerHomepage/viewproduct']);
     }
     else if(this.employee_designation==="Cashier")
     {
-      this._router.navigate(['CashierHomepage']);
+      this._router.navigate(['CashierHomepage/Viewbill']);
     }
     else if(this.employee_designation=="Worker")
     {
-      this._router.navigate(['WorkerHomepage']);
+      this._router.navigate(['WorkerHomepage/personalloan']);
     }
     else
     {
-      this._router.navigate(['DelieveryHomepage']);
+      this._router.navigate(['DelieveryHomepage/mywork']);
     }
   }
   OnUpdate()

@@ -22,4 +22,10 @@ export class CashierhomepageComponent {
   {
     this._router.navigate(['CashierHomepage/myprofile',localStorage.getItem('email')])
   }
+  onlogout()
+  {
+    localStorage.setItem('email',"");
+    localStorage.setItem('designation',"");
+    this._router.navigate(['']);
+  }
 }

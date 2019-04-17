@@ -29,19 +29,19 @@ export class UpdateprofileComponent implements OnInit {
           alert("Your Profile Is Successfully Updated");
           if(this.employee_designation=="Manager")
           {
-            this._route.navigate(['ManagerHomepage']);
+            this._route.navigate(['ManagerHomepage/viewproduct']);
           }
           else if(this.employee_designation=="Cashier")
           {
-            this._route.navigate(['CashierHomepage']);
+            this._route.navigate(['CashierHomepage/Viewbill']);
           }
           else if(this.employee_designation=="Worker")
           {
-            this._route.navigate(['WorkerHomepage']);
+            this._route.navigate(['WorkerHomepage/personalloan']);
           }
           else
           {
-            this._route.navigate(['DelieveryHomepage']);
+            this._route.navigate(['DelieveryHomepage/mywork']);
           }
         }
       )

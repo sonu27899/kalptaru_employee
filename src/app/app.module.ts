@@ -43,7 +43,8 @@ import { ChangepasswordComponent } from './General/changepassword/changepassword
 import { LeavemanagementComponent } from './General/leavemanagement/leavemanagement.component';
 import { MyleaveComponent } from './General/myleave/myleave.component';
 import { TermsandconditionComponent } from './General/termsandcondition/termsandcondition.component';
-import { OrderdetailsComponent } from './Cashier/orderdetails/orderdetails.component'
+import { OrderdetailsComponent } from './Cashier/orderdetails/orderdetails.component';
+import { PageNotFoundComponent } from './General/page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { OrderdetailsComponent } from './Cashier/orderdetails/orderdetails.compo
     LeavemanagementComponent,
     MyleaveComponent,
     TermsandconditionComponent,
-    OrderdetailsComponent
+    OrderdetailsComponent,
+    PageNotFoundComponent
   ],
   entryComponents: [DialogboxComponent],
   imports: [

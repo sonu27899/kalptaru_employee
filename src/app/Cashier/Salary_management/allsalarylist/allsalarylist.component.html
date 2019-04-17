@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 style="text-align: center">Employee Salary</h3>
+  <h2 style="text-align: center">Employee Salary</h2>
   <button  mat-raised-button color="primary" (click)="onpendingsalary()">Pending Salary</button>
   <!-- <a routerLink='../pendingsalary'>Pending Salary</a><br> -->
   <button  mat-raised-button color="primary" style="margin-left:750px;" (click)="ondonesalary()">Done Salary</button>
@@ -60,4 +60,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
 </div>

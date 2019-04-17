@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { MatTableDataSource,MatPaginator } from '../../../../../node_modules/@angular/material';
 import { orderstatus } from 'src/app/Classes/order_class';
@@ -14,7 +14,7 @@ import { employee } from 'src/app/Classes/employee_class';
 })
 export class OrderstatusComponent implements OnInit {
   orderarr:orderstatus[]=[];
-  displayedColumns: string[]=['order_id','order_date','order_amount','fk_user_email','Address','order_status','Delievery Assign To','Action'];
+  displayedColumns: string[]=['order_id','order_date','order_amount','fk_user_email','Address','order_status','Delievery Assign To','Action','More'];
   dataSource=new MatTableDataSource();
   dataSource1=new MatTableDataSource();
   i:number;
@@ -23,6 +23,7 @@ export class OrderstatusComponent implements OnInit {
   delievery_assign:String;
   n_flag:number=0;
   delieveryarr:employee[]=[];
+  @ViewChild(MatPaginator)paginator:MatPaginator;
   constructor(private _ser:OrdermanagementService,public _router:Router) { }
   getdel(item)
   {
@@ -31,7 +32,7 @@ export class OrderstatusComponent implements OnInit {
   }
   UpdateStatus(element)
   {
-    console.log(this.delievery_assign);
+    //console.log(this.delievery_assign);
     if(element.order_status=='Vendor Recieved Order')
     {
         this.status_no=1;
@@ -58,9 +59,10 @@ export class OrderstatusComponent implements OnInit {
   }
   onClick(item)
   {
-    this._router.navigate(['ManagerHomepage/getbilldetails',item.bill_id]);
+    this._router.navigate(['ManagerHomepage/orderdetails',item.order_id]);
   }
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
     this._ser.getAllOrder().subscribe(
       (data:any[])=>
       {
@@ -103,11 +105,13 @@ export class OrderstatusComponent implements OnInit {
         this.dataSource.data=this.orderarr;
       });
 
+
       this._ser.getAllDelieveryBoy().subscribe(
         (data:any)=>{
           this.delieveryarr=data;
         }
       );
   }
+
 
 }

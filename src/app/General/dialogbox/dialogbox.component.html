@@ -1,11 +1,29 @@
 
 <div mat-dialog-content>
-  <p>What's Reason for rejecting Loan?</p>
+  <h3 style="text-align: center">Payment Calculation</h3>
+  <br>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.loan_reason">
+    <input matInput placeholder="Your Loan Amount" [(ngModel)]="data.loan_amount" disabled>
   </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Your Loan Reason" disabled>{{data.loan_reason}}
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Your Monthly Payment" disabled>{{data.pay_per_month}}
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Your Loan Duration Start From"  disabled>{{data.loan_issued_date | date:'dd-MM-yyyy'}}
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Loan Duration(In Month)" disabled>{{data.loan_months}}
+  </mat-form-field>
+  <br>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button (click)="onClick(data.loan_reason)" [mat-dialog-close]="data.loan_reason"  cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onClick(data)" [mat-dialog-close]="data"  cdkFocusInitial>I AGREE</button>
   </div>

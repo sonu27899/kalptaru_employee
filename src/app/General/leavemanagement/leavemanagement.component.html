@@ -33,6 +33,7 @@
         <div [hidden]="!date?.errors?.required"></div>
         <mat-error>Date From Leave is required*</mat-error>
       </div>
+
       <br>
         <button [disabled]="!f1.valid"  (click)="onAddLeaveButton()" mat-raised-button color="primary">&nbsp;&nbsp;&nbsp;<mat-icon>add</mat-icon> APPLY</button>
         &nbsp;&nbsp;&nbsp;<button   mat-raised-button color="primary" (click)="CancelButton()">&nbsp;&nbsp;&nbsp;<mat-icon>cancel</mat-icon> CANCEL</button>

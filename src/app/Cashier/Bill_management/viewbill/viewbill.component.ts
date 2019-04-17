@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BillmanagementService } from '../../../Services/billmanagement.service';
 import { viewbill } from '../../../Classes/bill_class';
 import { Router } from "@angular/router";
@@ -22,11 +22,13 @@ export class ViewbillComponent implements OnInit {
   dataSource=new MatTableDataSource();
 
   constructor(private _ser:OrdermanagementService,public _router:Router) { }
+  @ViewChild(MatPaginator)paginator:MatPaginator;
   onClick(item)
   {
     this._router.navigate(['CashierHomepage/orderdetails',item.order_id]);
   }
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
     this._ser.getAllOrder().subscribe(
       (data:any[])=>
       {

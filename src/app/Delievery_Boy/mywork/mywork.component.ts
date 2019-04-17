@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { orderstatus } from 'src/app/Classes/order_class';
 import { OrdermanagementService } from 'src/app/Services/ordermanagement.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class MyworkComponent implements OnInit {
   flag:number=0;
   asign_delievery:String;
   n_flag:number=0;
+  @ViewChild(MatPaginator)paginator:MatPaginator;
   constructor(private _ser:OrdermanagementService,public _router:Router) { }
   UpdateStatus(element)
   {
@@ -41,12 +42,13 @@ export class MyworkComponent implements OnInit {
     );
   }
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
     this.employee_email=localStorage.getItem('email')
     this._ser.getAllWork(this.employee_email).subscribe(
       (data:any[])=>
       {
 
-        console.log(data);
+        //console.log(data);
          for(this.i=0;this.i<data.length;this.i++)
          {
             if(data[this.i].order_status==1)
