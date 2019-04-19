@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { sendmail } from '../Classes/mail_class';
+import { url } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailManagementService {
 
-  private forget:string='http://localhost:3000/forgetpassword/';
-  private email:string='http://localhost:3000/sendemail/';
+  private forget:string=url.endPoint+'forgetpassword/';
+  private email:string=url.endPoint+'sendemail/';
   constructor(private _http:HttpClient) { }
 
   getpassById(email_id:string){

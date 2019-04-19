@@ -3,6 +3,7 @@ import { product } from '../../../Classes/product_class';
 import { ProductService } from '../../../Services/productmanagement.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { url } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-viewproduct',

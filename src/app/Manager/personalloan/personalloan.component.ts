@@ -35,7 +35,7 @@ flag1:boolean;
 
     this.interest=((this.loan_amount*2*this.loan_months)/1200);
     this.interest=parseInt(this.interest+"");
-    console.log(this.interest);
+    //console.log(this.interest);
     this.emi=((this.loan_amount+this.interest)/this.loan_months);
     this.pay_per_month=parseInt(this.emi+"");
 

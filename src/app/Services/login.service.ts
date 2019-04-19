@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Login } from '../Classes/login_class';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { url } from '../../../src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private login_url='http://localhost:3000/emplogin/';
+  private login_url=url.endPoint+'emplogin/';
 
 
   constructor(private _http:HttpClient) { }

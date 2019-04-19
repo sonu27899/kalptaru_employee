@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { orderstatus } from '../Classes/order_class';
+import { url } from '../../../src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdermanagementService {
-  private order_url="http://localhost:3000/empvieworder/";
-  private my_work_url="http://localhost:3000/empviewwork/";
-  private get_delievery_boy="http://localhost:3000/empgetdelieveryboy/";
-  private bill_details_url='http://localhost:3000/orderDetail/';
+  private order_get_url=url.endPoint+"order/"
+  private order_url=url.endPoint+"empvieworder/";
+  private my_work_url=url.endPoint+"empviewwork/";
+  private get_delievery_boy=url.endPoint+"empgetdelieveryboy/";
+  private bill_details_url=url.endPoint+'orderDetail/';
   constructor(private _http:HttpClient) { }
 
   getAllOrder()
   {
-    return this._http.get(this.order_url);
+    return this._http.get(this.order_get_url);
   }
   getBillDetails(order_id)
   {

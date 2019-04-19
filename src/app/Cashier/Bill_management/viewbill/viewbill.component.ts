@@ -18,7 +18,7 @@ export class ViewbillComponent implements OnInit {
   orderarr:orderstatus[]=[];
   n_flag:number=0;
   flag:number=0;
-  displayedColumns: string[] = ['order_id','order_date','order_amount','fk_user_email','Address','order_status','Delievery Assign To','More'];
+  displayedColumns: string[] = ['order_id','order_amount','fk_user_email','Address','order_status','Delievery Assign To','More'];
   dataSource=new MatTableDataSource();
 
   constructor(private _ser:OrdermanagementService,public _router:Router) { }
