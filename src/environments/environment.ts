@@ -7,8 +7,8 @@ export const environment = {
 };
 
 export const url = {
-  endPoint:'http://godaddykalpataru.herokuapp.com/'
-  //endPoint:'http://localhost:3000/'
+  //endPoint:'http://godaddykalpataru.herokuapp.com/'
+  endPoint:'http://localhost:3000/'
 };
 
 /*
